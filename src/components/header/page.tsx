@@ -21,7 +21,7 @@ const Header = () => {
                     width={30}
                     height={30}
                 />
-                <h1 className='font-bold uppercase text-white'> TIER LIST MAKER </h1>
+                <h1 className='text-white'> S-TIER LIST </h1>
             </div>
             
             {!isMenuMobileOpen ? (

@@ -10,7 +10,7 @@ const Item = () => {
             style={{backgroundImage: "url('/assets/test/card-image.jpg')"}}
             >
                 <div className="w-full h-1/3 bg-gray-900/90 flex justify-center align-middle p-1">
-                    <p className=""> Langages prog. </p>
+                    <p className=""> Programmation </p>
                 </div>
             </article>
         </Link>

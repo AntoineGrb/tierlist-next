@@ -10,6 +10,10 @@ const config: Config = {
     extend: {
       fontFamily: {
         lusitana: ['Lusitana', 'serif'],
+        bangers: ['var(--font-bangers)'],
+        luckiestGuy: ['var(--font-luckiest-guy)'],
+        oswald: ['var(--font-oswald)'],
+        raleway: ['var(--font-raleway)'],
       },
       colors: {
         'tier-s': '#fd807f',

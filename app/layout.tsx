@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
-import { Inter , Lusitana } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
+import { Inter , Bangers, Luckiest_Guy, Oswald, Raleway } from "next/font/google";
 import { MenuProvider } from "@/src/context/menuContext";
 import Header from "@/src/components/header/page";
 import MenuMobile from "@/src/components/menuMobile/page";
@@ -10,10 +10,13 @@ interface RootLayoutProps {
 }
 
 const inter = Inter({ subsets: ["latin"] });
-const lusitana = Lusitana({ weight: ['400' , '700'] , subsets: ["latin"] });
+const bangers = Bangers({ weight: ['400'] , subsets: ["latin"], variable:'--font-bangers' });
+const luckiestGuy = Luckiest_Guy({ weight: ['400'], subsets:["latin"], variable:'--font-luckiest-guy' });
+const oswald = Oswald({ weight: ['200', '400', '600'] , subsets: ["latin"], variable:'--font-oswald' });
+const raleway = Raleway({ weight: ['200', '400', '600'] , subsets: ["latin"], variable:'--font-raleway' });
 
 export const metadata: Metadata = {
-  title: "Tier list maker",
+  title: "Top Tierlist",
   description: "Create your own tier list with this simple tool",
 };
 
@@ -21,7 +24,7 @@ export default function RootLayout({children} : RootLayoutProps) {
 
   return (
     <html lang="fr">
-        <body className={`${inter.className} antialiased`}>
+        <body className={` ${raleway.className} ${bangers.variable} ${luckiestGuy.variable} ${oswald.variable} antialiased`}>
           <MenuProvider>
               <Header />
               <MenuMobile />

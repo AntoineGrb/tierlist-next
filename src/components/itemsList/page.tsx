@@ -13,7 +13,7 @@ const ItemsList = ({title}: ItemsListProps) => {
         <section className='py-3'>
             <h3 className='pb-2'> {title} </h3>
             <div className='flex gap-3 flex-nowrap overflow-x-scroll'>
-                <Item/>
+                <Item />
                 <Item />
                 <Item />
                 <Item />
