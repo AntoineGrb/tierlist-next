@@ -9,7 +9,10 @@ const Header = () => {
 
     const { toggleMenu , isMenuMobileOpen } = useMenu()!;
 
+    //! Tester d'ajouter un icone de menu animé (cf. favoris Chrome)
+
     return (
+    
         <header className='px-4 py-6 bg-black flex items-center justify-between border-b-2 border-b-white'>
             <div className='flex items-center gap-2'>
                 <Image
@@ -20,6 +23,7 @@ const Header = () => {
                 />
                 <h1 className='font-bold uppercase text-white'> TIER LIST MAKER </h1>
             </div>
+            
             {!isMenuMobileOpen ? (
                 <FaBars onClick={toggleMenu} className='text-white text-2xl justify-self-end' />
             ) : (

@@ -6,11 +6,6 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --tier-s-color: #fd807f;
-  --tier-a-color: #ffbf7e;
-  --tier-b-color: #ffff80;
-  --tier-c-color: #80ff80;
-  --tier-d-color: #7fffff;
 }
 
 @media (prefers-color-scheme: dark) {
