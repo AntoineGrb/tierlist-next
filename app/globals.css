@@ -27,6 +27,22 @@
   }
 }
 
+h1, h2, h3, p, a {
+  @apply text-white
+}
+
 h1 {
   @apply font-lusitana text-2xl;
+}
+
+h2 {
+  @apply font-lusitana text-2xl;
+}
+
+h3 {
+  @apply font-lusitana text-lg;
+}
+
+p {
+  @apply font-lusitana text-base;
 }
