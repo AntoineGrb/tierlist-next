@@ -2,11 +2,19 @@ import React from 'react';
 import Image from 'next/image';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
-interface BoardProps { 
-    items: itemProps[]
+interface BoardItems {
+    S: ItemProps[];
+    A: ItemProps[];
+    B: ItemProps[];
+    C: ItemProps[];
+    D: ItemProps[];
 }
 
-interface itemProps {
+interface BoardProps {
+    items: BoardItems;
+}
+
+interface ItemProps {
     id: string;
     name: string;
     src: string;
@@ -15,70 +23,33 @@ interface itemProps {
 const Board = ({items}: BoardProps) => {
 
     return (
-        <Droppable droppableId='board' direction='horizontal'>
-            {(provided) => (
-                <div ref={provided.innerRef} {...provided.droppableProps} className=' bg-[#1a1a18] border-2 border-black'>
-                    <div className='flex w-full min-h-24 border-b-2 border-black'>
-                        <div className='w-1/4 flex justify-center items-center bg-tier-s p-3'>
-                            <p className='text-black leading-4'> Champions du monde toutes catégories </p>
+        <div className='bg-[#1a1a18] border-2 border-black'>
+        {/* Pour chaque catégorie, créez une zone droppable */}
+        {Object.entries(items).map(([category, categoryItems]) => (
+            <Droppable droppableId={`board-${category}`} key={category} direction='horizontal'>
+                {(provided) => (
+                    <div
+                        ref={provided.innerRef} {...provided.droppableProps} className='flex w-full min-h-24 border-b-2 border-black'
+                    >
+                        <div className={`w-1/4 flex justify-center items-center bg-tier-${category.toLowerCase()} p-3`}>
+                            <p className='text-black'>{category}</p>
                         </div>
-                        <div className=' flex gap-1 flex-wrap justify-start items-center p-3'>
-                            {items.map((item, index) => (
-                                <>
+                        <div className='flex justify-start items-center gap-2 pl-2'>
+                            {categoryItems.map((item: ItemProps, index: number) => (
                                 <Draggable key={item.id} draggableId={item.id} index={index}>
-                                {(provided) => (
-                                    <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                        <Image src={item.src} alt={item.name} width={60} height={60} />
-                                    </div>
-                                )}
+                                    {(provided) => (
+                                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                            <Image src={item.src} alt={item.name} width={60} height={60} />
+                                        </div>
+                                    )}
                                 </Draggable>
-                                </>
                             ))}
                         </div>
                     </div>
-                    <div className='flex w-full h-24 border-b-2 border-black'>
-                        <div className='w-1/4 h-full flex justify-center items-center bg-tier-a'>
-                            <p className='text-black'> A </p>
-                        </div>
-                        <div className='h-full flex justify-start items-center pl-2'>
-                            {items.map((item, index) => (
-                                <></>
-                            ))}
-                        </div>
-                    </div>
-                    <div className='flex w-full h-24 border-b-2 border-black'>
-                        <div className='w-1/4 h-full flex justify-center items-center bg-tier-b'>
-                            <p className='text-black'> B </p>
-                        </div>
-                        <div className='h-full flex justify-start items-center pl-2'>
-                            {items.map((item, index) => (
-                                <></>
-                            ))}
-                        </div>
-                    </div>
-                    <div className='flex w-full h-24 border-b-2 border-black'>
-                        <div className='w-1/4 h-full flex justify-center items-center bg-tier-c'>
-                            <p className='text-black'> C </p>
-                        </div>
-                        <div className='h-full flex justify-start items-center pl-2'>
-                            {items.map((item, index) => (
-                                <></>
-                            ))}
-                        </div>
-                    </div>
-                    <div className='flex w-full h-24 border-b-2 border-black'>
-                        <div className='w-1/4 h-full flex justify-center items-center bg-tier-d'>
-                            <p className='text-black'> D </p>
-                        </div>
-                        <div className='h-full flex justify-start items-center pl-2'>
-                            {items.map((item, index) => (
-                                <></>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
-        </Droppable>
+                )}
+            </Droppable>
+        ))}
+    </div>
     );
 };
 

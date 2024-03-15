@@ -12,6 +12,18 @@ interface Item {
     src: string;
 }
 
+interface BoardItems {
+    S: Item[];
+    A: Item[];
+    B: Item[];
+    C: Item[];
+    D: Item[];
+}
+
+interface BoardProps {
+    items: BoardItems;
+}
+
 const TierList = () => {
 
     //! A déplacer dans un fichier de données
@@ -28,7 +40,13 @@ const TierList = () => {
         { id: '10', name: 'typescript', src:'/assets/test/langages/typescript.png' },
     ]
 
-    const [boardItems, setBoardItems] = useState<Item[]>([]);
+    const [boardItems, setBoardItems] = useState<BoardItems>({
+        S: [],
+        A: [],
+        B: [],
+        C: [],
+        D: [], 
+    });
     const [choicesItems, setChoicesItems] = useState<Item[]>(items);
 
     //Reorder items
@@ -50,44 +68,49 @@ const TierList = () => {
     }
 
     //Handle end of drag and drop
-    const onDragEnd = (result: DropResult) => { 
+    const onDragEnd = (result: DropResult) => {
         const { source, destination } = result;
-
-        // console.log('result.source.droppableId', result.source.droppableId);
-        // console.log('result.destination.droppableId', result.destination.droppableId);
-        // console.log('result.draggableId', result.draggableId); 
-
-        //Dropped outside the list
+    
         if (!destination) {
             return;
         }
 
-        //Dropped in the same list
-        if (source.droppableId === destination.droppableId) {
-            if (source.droppableId === 'board') {
-                const items = reorder(boardItems, source.index, destination.index);
-                setBoardItems(items);
+        let newBoardItems: BoardItems = { ...boardItems };
 
-            } else {
-                const items = reorder(choicesItems, source.index, destination.index);
-                setChoicesItems(items);
-            }
-
+        if (source.droppableId === 'choices' && destination.droppableId.startsWith('board-')) {
+            // Déplacement de Choices vers Board
+            const removed = choicesItems.splice(source.index, 1)[0];
+            const category = destination.droppableId.split('-')[1] as keyof BoardItems;
+            const newBoardItems: BoardItems = { ...boardItems };
+            newBoardItems[category].splice(destination.index, 0, removed);
+            setChoicesItems([...choicesItems]);
+            setBoardItems(newBoardItems);
+        } else if (destination.droppableId === 'choices' && source.droppableId.startsWith('board-')) {
+            // Déplacement de Board vers Choices
+            const removed = newBoardItems[source.droppableId.split('-')[1] as keyof BoardItems].splice(source.index, 1)[0];
+            choicesItems.splice(destination.index, 0, removed);
+            setBoardItems(newBoardItems);
+            setChoicesItems([...choicesItems]);
+        } else if (source.droppableId.startsWith('board-') && destination.droppableId.startsWith('board-')) {
+            // Déplacement entre différentes zones du Board
+            const sourceCategory = source.droppableId.split('-')[1] as keyof BoardItems; // Explicitly define the type of sourceCategory
+            const destCategory = destination.droppableId.split('-')[1] as keyof BoardItems; // Explicitly define the type of destCategory
+            const removed = newBoardItems[sourceCategory].splice(source.index, 1)[0];
+            newBoardItems[destCategory].splice(destination.index, 0, removed);
+            setBoardItems(newBoardItems);
         } else {
-            //Dropped from choices to board
-            if (source.droppableId === 'choices' && destination.droppableId === 'board') {
-                const result = move(choicesItems, boardItems, source, destination);
-                setChoicesItems(result.source);
-                setBoardItems(result.destination);
-
+            let newItems;
+            if (source.droppableId.startsWith('board-')) {
+                const category = source.droppableId.split('-')[1];
+                newItems = reorder(boardItems[category as keyof BoardItems], source.index, destination.index);
+                setBoardItems({ ...boardItems, [category]: newItems });
             } else {
-                //Dropped from board to choices
-                const result = move(boardItems, choicesItems, source, destination);
-                setBoardItems(result.source);
-                setChoicesItems(result.destination);
+                newItems = reorder(choicesItems, source.index, destination.index);
+                setChoicesItems(newItems);
             }
         }
-    }
+    };
+    
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>
