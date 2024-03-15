@@ -22,6 +22,17 @@ interface ItemProps {
 
 const Board = ({items}: BoardProps) => {
 
+    function getBackgroundColor(category: string) {
+        switch (category.toLowerCase()) {
+            case 's': return 'bg-tier-s';
+            case 'a': return 'bg-tier-a';
+            case 'b': return 'bg-tier-b';
+            case 'c': return 'bg-tier-c';
+            case 'd': return 'bg-tier-d';
+            default: return ''; // Default case
+        }
+    }    
+
     return (
         <div className='bg-[#1a1a18] border-2 border-black'>
         {/* Pour chaque catégorie, créez une zone droppable */}
@@ -31,7 +42,7 @@ const Board = ({items}: BoardProps) => {
                     <div
                         ref={provided.innerRef} {...provided.droppableProps} className='flex w-full min-h-24 border-b-2 border-black'
                     >
-                        <div className={`w-1/4 flex justify-center items-center bg-tier-a p-3`}>
+                        <div className={`w-1/4 flex justify-center items-center ${getBackgroundColor(category)} p-3`}>
                             <p className='text-black'>{category}</p>
                         </div>
                         <div className='flex justify-start items-center gap-2 pl-2'>
