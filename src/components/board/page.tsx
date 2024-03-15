@@ -31,7 +31,7 @@ const Board = ({items}: BoardProps) => {
                     <div
                         ref={provided.innerRef} {...provided.droppableProps} className='flex w-full min-h-24 border-b-2 border-black'
                     >
-                        <div className={`w-1/4 flex justify-center items-center bg-tier-${category.toLowerCase()} p-3`}>
+                        <div className={`w-1/4 flex justify-center items-center bg-tier-a p-3`}>
                             <p className='text-black'>{category}</p>
                         </div>
                         <div className='flex justify-start items-center gap-2 pl-2'>
