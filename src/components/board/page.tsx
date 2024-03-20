@@ -39,11 +39,11 @@ const Board = ({items}: BoardProps) => {
         {Object.entries(items).map(([category, categoryItems]) => (
             <Droppable droppableId={`board-${category}`} key={category} direction='horizontal'>
                 {(provided) => (
-                    <div ref={provided.innerRef} {...provided.droppableProps} className='flex w-full min-w-24 min-h-24 border-b-2 border-black'>
+                    <div className='flex w-full min-w-24 min-h-24 border-b-2 border-black'>
                         <div className={`w-1/4 flex justify-center items-center ${getBackgroundColor(category)} p-3`}>
                             <p className='text-black'>{category}</p>
                         </div>
-                        <div className='w-3/4 flex justify-start items-center gap-2 p-2 flex-wrap'>
+                        <div ref={provided.innerRef} {...provided.droppableProps} className='w-3/4 flex justify-start items-center gap-2 p-2 flex-wrap'>
                             {categoryItems.map((item: ItemProps, index: number) => (
                                 <Draggable key={item.id} draggableId={item.id} index={index}>
                                     {(provided) => (
