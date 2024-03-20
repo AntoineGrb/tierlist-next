@@ -2,6 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
+interface BoardProps {
+    items: BoardItems;
+    isMobile: boolean;
+}
+
 interface BoardItems {
     S: ItemProps[];
     A: ItemProps[];
@@ -10,17 +15,13 @@ interface BoardItems {
     D: ItemProps[];
 }
 
-interface BoardProps {
-    items: BoardItems;
-}
-
 interface ItemProps {
     id: string;
     name: string;
     src: string;
 }
 
-const Board = ({items}: BoardProps) => {
+const Board = ({items, isMobile}: BoardProps) => {
 
     function getBackgroundColor(category: string) {
         switch (category.toLowerCase()) {
@@ -48,7 +49,7 @@ const Board = ({items}: BoardProps) => {
                                 <Draggable key={item.id} draggableId={item.id} index={index}>
                                     {(provided) => (
                                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                            <Image src={item.src} alt={item.name} width={60} height={60} />
+                                            <Image src={item.src} alt={item.name} width={isMobile ? 50 : 70} height={isMobile ? 50 : 70} />
                                         </div>
                                     )}
                                 </Draggable>

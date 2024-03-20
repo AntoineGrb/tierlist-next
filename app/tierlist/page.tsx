@@ -2,9 +2,9 @@
 
 import React, {useState , useEffect} from 'react';
 import { DragDropContext, DropResult, Droppable, Draggable } from 'react-beautiful-dnd';
+import { useMediaQuery } from 'usehooks-ts';
 import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
-import Image from 'next/image';
 
 interface Item {
     id: string;
@@ -48,6 +48,8 @@ const TierList = () => {
         D: [], 
     });
     const [choicesItems, setChoicesItems] = useState<Item[]>(items);
+
+    const isMobile = useMediaQuery('(max-width: 640px)');
 
     //Reorder items
     const reorder = (list: Item[], startIndex: number, endIndex: number) => {
@@ -121,8 +123,8 @@ const TierList = () => {
                     <p className=' text-justify'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam odit provident, at facere atque, rerum placeat modi distinctio illo culpa saepe dignissimos voluptates non voluptate, dolores quibusdam minus temporibus voluptatum quidem? Voluptates beatae similique, quia, possimus ad impedit esse velit molestiae molestias cupiditate, sint facilis quaerat alias repellendus amet adipisci.</p>
                 </section>
 
-                <Board items={boardItems} />
-                <Choices items={choicesItems} />     
+                <Board items={boardItems} isMobile={isMobile} />
+                <Choices items={choicesItems} isMobile={isMobile} />     
 
                 <section className='flex flex-col gap-3 justify-center items-center mt-6 mb-32'>
                     <button className='bg-white text-black w-2/3 p-1 rounded-sm'>
