@@ -24,11 +24,13 @@ export default function RootLayout({children} : RootLayoutProps) {
 
   return (
     <html lang="fr">
-        <body className={` ${raleway.className} ${bangers.variable} ${luckiestGuy.variable} ${oswald.variable} antialiased`}>
+        <body className={`bg-black ${raleway.className} ${bangers.variable} ${luckiestGuy.variable} ${oswald.variable} antialiased`}>
           <MenuProvider>
               <Header />
               <MenuMobile />
-              {children}
+              <main className="max-w-7xl mx-auto">
+                {children}
+              </main>
           </MenuProvider>
         </body>
     </html>
