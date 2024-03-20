@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { getBackgroundColor } from '@/src/utils/styleFunctions';
 
 interface BoardProps {
     items: BoardItems;
@@ -23,28 +24,20 @@ interface ItemProps {
 
 const Board = ({items, isMobile}: BoardProps) => {
 
-    function getBackgroundColor(category: string) {
-        switch (category.toLowerCase()) {
-            case 's': return 'bg-tier-s';
-            case 'a': return 'bg-tier-a';
-            case 'b': return 'bg-tier-b';
-            case 'c': return 'bg-tier-c';
-            case 'd': return 'bg-tier-d';
-            default: return ''; // Default case
-        }
-    }    
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
         <div className='bg-[#1a1a18] border-2 border-black'>
-        {/* Pour chaque catégorie, créez une zone droppable */}
+            
+        {/* Create a drop zone for each category of tier list */}
         {Object.entries(items).map(([category, categoryItems]) => (
             <Droppable droppableId={`board-${category}`} key={category} direction='horizontal'>
-                {(provided) => (
+                {(provided, snapshot) => (
                     <div className='flex w-full min-w-24 min-h-24 border-b-2 border-black'>
                         <div className={`w-1/4 flex justify-center items-center ${getBackgroundColor(category)} p-3`}>
                             <p className='text-black'>{category}</p>
                         </div>
-                        <div ref={provided.innerRef} {...provided.droppableProps} className='w-3/4 flex justify-start items-center gap-2 p-2 flex-wrap'>
+                        <div ref={provided.innerRef} {...provided.droppableProps} style={{backgroundColor: snapshot.isDraggingOver ? 'gray' : 'transparent',}} className='droppable-container w-3/4 flex justify-start items-center gap-2 p-2 flex-wrap'>
                             {categoryItems.map((item: ItemProps, index: number) => (
                                 <Draggable key={item.id} draggableId={item.id} index={index}>
                                     {(provided) => (
@@ -54,6 +47,8 @@ const Board = ({items, isMobile}: BoardProps) => {
                                     )}
                                 </Draggable>
                             ))}
+                            {provided.placeholder}
+                            
                         </div>
                     </div>
                 )}
