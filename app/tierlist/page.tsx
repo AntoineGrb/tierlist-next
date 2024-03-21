@@ -21,10 +21,6 @@ interface BoardItems {
     D: Item[];
 }
 
-interface BoardProps {
-    items: BoardItems;
-}
-
 const TierList = () => {
 
     const [boardItems, setBoardItems] = useState<BoardItems>({
