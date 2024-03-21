@@ -1,6 +1,6 @@
 import ItemsList from "@/src/components/itemsList/page";
 
-export default function Home() {
+export default function Home({lists}: any) {
   return (
     <main className="bg-black min-h-screen px-3 py-8">
       <section className="pb-4">

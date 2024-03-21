@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Programming Langages",
+        "description": "List of programming langages",
+        "cardImageUrl": "/assets/items/programming/card-image.jpg",
+        "items": [
+            { "name": "C-plus", "itemImageUrl":"/assets/items/programming/c_plus.png"},
+            { "name": "C-sharp", "itemImageUrl":"/assets/items/programming/c_sharp.jpg"},
+            { "name": "Java", "itemImageUrl":"/assets/items/programming/java.png"},
+            { "name": "Javascript", "itemImageUrl":"/assets/items/programming/javascript.png"},
+            { "name": "Php", "itemImageUrl":"/assets/items/programming/php.png"},
+            { "name": "Python", "itemImageUrl":"/assets/items/programming/python.png"},
+            { "name": "Ruby", "itemImageUrl":"/assets/items/programming/ruby.png"},
+            { "name": "Typescript", "itemImageUrl":"/assets/items/programming/typescript.png"},
+            { "name": "Swift", "itemImageUrl":"/assets/items/programming/swift.png"},
+            { "name": "C", "itemImageUrl":"/assets/items/programming/c.png"}
+        ]
+    },
+    {
+        "title": "Football Players 2024",
+        "description": "List of the best football players in 2024",
+        "cardImageUrl": "/assets/items/programming/card-image.jpg",
+        "items": [
+            {"name":"Kylian Mbappe", "itemImageUrl":"/assets/items/football-players-2024/mbappe.jpg"},
+            {"name":"Erling Haaland", "itemImageUrl":"/assets/items/football-players-2024/haaland.jpg"},
+            {"name":"Jude Bellingham", "itemImageUrl":"/assets/items/football-players-2024/bellingham.jpg"},
+            {"name":"Kevin De Bruyne", "itemImageUrl":"/assets/items/football-players-2024/debruyne.jpg"},
+            {"name":"Harry Kane", "itemImageUrl":"/assets/items/football-players-2024/kane.jpg"},
+            {"name":"Lionel Messi", "itemImageUrl":"/assets/items/football-players-2024/messi.jpg"},
+            {"name":"Cristiano Ronaldo", "itemImageUrl":"/assets/items/football-players-2024/ronaldo.jpg"},
+            {"name":"Vinicius Junior", "itemImageUrl":"/assets/items/football-players-2024/vinicius.jpg"}
+        ]
+    }
+]
