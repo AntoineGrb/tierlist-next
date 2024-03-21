@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import ItemsList from "@/src/components/itemsList/page";
 import { getLists } from "../app/lib/data";
 
