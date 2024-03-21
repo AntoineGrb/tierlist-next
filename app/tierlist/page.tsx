@@ -5,7 +5,7 @@ import { DragDropContext, DropResult, Droppable, Draggable } from 'react-beautif
 import { useMediaQuery } from 'usehooks-ts';
 import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
-import items from '@/src/data/lists/programming/items';
+import list from '@/src/data/lists/programming/list';
 
 interface Item {
     id: string;
@@ -34,7 +34,7 @@ const TierList = () => {
         C: [],
         D: [], 
     });
-    const [choicesItems, setChoicesItems] = useState<Item[]>(items);
+    const [choicesItems, setChoicesItems] = useState<Item[]>(list.items);
 
     const isMobile = useMediaQuery('(max-width: 640px)');
 
