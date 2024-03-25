@@ -17,6 +17,8 @@ model List {
   id            Int @id @default(autoincrement())
   title         String  @unique
   description   String
+  category      String  @default("Game")
+  isPopular     Boolean @default(false)
   cardImageUrl  String
   items   Item[]
 }

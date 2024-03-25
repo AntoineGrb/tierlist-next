@@ -3,6 +3,8 @@
         "title": "Programming Langages",
         "description": "List of programming langages",
         "cardImageUrl": "/assets/items/programming/card-image.jpg",
+        "category": "Games",
+        "isPopular": false,
         "items": [
             { "name": "C-plus", "itemImageUrl":"/assets/items/programming/c_plus.png"},
             { "name": "C-sharp", "itemImageUrl":"/assets/items/programming/c_sharp.jpg"},
@@ -20,6 +22,8 @@
         "title": "Football Players 2024",
         "description": "List of the best football players in 2024",
         "cardImageUrl": "/assets/items/programming/card-image.jpg",
+        "category": "Sports",
+        "isPopular": true,
         "items": [
             {"name":"Kylian Mbappe", "itemImageUrl":"/assets/items/football-players-2024/mbappe.jpg"},
             {"name":"Erling Haaland", "itemImageUrl":"/assets/items/football-players-2024/haaland.jpg"},

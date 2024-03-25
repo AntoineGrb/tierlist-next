@@ -7,8 +7,12 @@
     "dev": "next dev",
     "prisma:generate": "prisma generate",
     "build": "npm run prisma:generate && next build",
+    "seed": "npx prisma db seed",
     "start": "next start",
     "lint": "next lint"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
   },
   "dependencies": {
     "@prisma/client": "^5.11.0",
