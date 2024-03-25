@@ -1,14 +1,27 @@
 'use client';
 
-import { ItemProps, BoardItemsProps } from '../lib/interfaces';
+import { ListProps, ItemProps, BoardItemsProps } from '../../lib/interfaces';
 import React, {useState , useEffect} from 'react';
 import { DragDropContext, DropResult, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useMediaQuery } from 'usehooks-ts';
 import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
-import list from '@/src/data/lists/programming/list';
+// import list from '@/src/data/lists/programming/list';
+// import { getList } from "../../../app/lib/data";
 
-const TierList = () => {
+const TierList = ({params} : {params: {listId: string}}) => {
+
+    const isMobile = useMediaQuery('(max-width: 640px)');
+    const listId = Number(params.listId);
+    console.log('listId ', listId)
+
+    const [list, setList] = useState<ListProps>({
+        id: 0,
+        title: "",
+        description: "",
+        cardImageUrl: "",
+        items: []
+    });
 
     const [boardItems, setBoardItems] = useState<BoardItemsProps>({
         S: [],
@@ -19,7 +32,21 @@ const TierList = () => {
     });
     const [choicesItems, setChoicesItems] = useState<ItemProps[]>(list.items);
 
-    const isMobile = useMediaQuery('(max-width: 640px)');
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(`/api/getList?id=${listId}`);
+
+            if (!response.ok) {
+                console.log('Error to get list')
+                return;
+            }
+
+            const data = await response.json();
+            setList(data);
+            setChoicesItems(data.items);
+        };
+        fetchData();
+    }, [listId]);
 
     //Reorder items
     const reorder = (list: ItemProps[], startIndex: number, endIndex: number) => {

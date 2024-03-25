@@ -11,3 +11,16 @@ export const getLists = async () => {
     console.log("lists server : " , lists)
     return lists;
 }
+
+export const getList = async (id: number) => {
+    const list = await prisma.list.findUnique({
+        where: {
+            id: id
+        },
+        include: {
+            items: true
+        }
+    });
+    console.log("list server : " , list)
+    return list;
+}
