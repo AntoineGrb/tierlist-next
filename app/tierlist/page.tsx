@@ -1,5 +1,6 @@
 'use client';
 
+import { ItemProps, BoardItemsProps } from '../lib/interfaces';
 import React, {useState , useEffect} from 'react';
 import { DragDropContext, DropResult, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useMediaQuery } from 'usehooks-ts';
@@ -7,35 +8,21 @@ import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
 import list from '@/src/data/lists/programming/list';
 
-interface Item {
-    id: string;
-    name: string;
-    src: string;
-}
-
-interface BoardItems {
-    S: Item[];
-    A: Item[];
-    B: Item[];
-    C: Item[];
-    D: Item[];
-}
-
 const TierList = () => {
 
-    const [boardItems, setBoardItems] = useState<BoardItems>({
+    const [boardItems, setBoardItems] = useState<BoardItemsProps>({
         S: [],
         A: [],
         B: [],
         C: [],
         D: [], 
     });
-    const [choicesItems, setChoicesItems] = useState<Item[]>(list.items);
+    const [choicesItems, setChoicesItems] = useState<ItemProps[]>(list.items);
 
     const isMobile = useMediaQuery('(max-width: 640px)');
 
     //Reorder items
-    const reorder = (list: Item[], startIndex: number, endIndex: number) => {
+    const reorder = (list: ItemProps[], startIndex: number, endIndex: number) => {
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
         result.splice(endIndex, 0, removed);
@@ -43,7 +30,8 @@ const TierList = () => {
     }
 
     //Move items between lists
-    const move = (source: Item[], destination: Item[], droppableSource: any, droppableDestination: any) => {
+    //!Unused
+    const move = (source: ItemProps[], destination: ItemProps[], droppableSource: any, droppableDestination: any) => {
         const sourceClone = Array.from(source);
         const destClone = Array.from(destination);
         const [removed] = sourceClone.splice(droppableSource.index, 1);
@@ -60,26 +48,26 @@ const TierList = () => {
             return;
         }
 
-        let newBoardItems: BoardItems = { ...boardItems };
+        let newBoardItems: BoardItemsProps = { ...boardItems };
 
         if (source.droppableId === 'choices' && destination.droppableId.startsWith('board-')) {
             // Déplacement de Choices vers Board
             const removed = choicesItems.splice(source.index, 1)[0];
-            const category = destination.droppableId.split('-')[1] as keyof BoardItems;
-            const newBoardItems: BoardItems = { ...boardItems };
+            const category = destination.droppableId.split('-')[1] as keyof BoardItemsProps;
+            const newBoardItems: BoardItemsProps = { ...boardItems };
             newBoardItems[category].splice(destination.index, 0, removed);
             setChoicesItems([...choicesItems]);
             setBoardItems(newBoardItems);
         } else if (destination.droppableId === 'choices' && source.droppableId.startsWith('board-')) {
             // Déplacement de Board vers Choices
-            const removed = newBoardItems[source.droppableId.split('-')[1] as keyof BoardItems].splice(source.index, 1)[0];
+            const removed = newBoardItems[source.droppableId.split('-')[1] as keyof BoardItemsProps].splice(source.index, 1)[0];
             choicesItems.splice(destination.index, 0, removed);
             setBoardItems(newBoardItems);
             setChoicesItems([...choicesItems]);
         } else if (source.droppableId.startsWith('board-') && destination.droppableId.startsWith('board-')) {
             // Déplacement entre différentes zones du Board
-            const sourceCategory = source.droppableId.split('-')[1] as keyof BoardItems; // Explicitly define the type of sourceCategory
-            const destCategory = destination.droppableId.split('-')[1] as keyof BoardItems; // Explicitly define the type of destCategory
+            const sourceCategory = source.droppableId.split('-')[1] as keyof BoardItemsProps; // Explicitly define the type of sourceCategory
+            const destCategory = destination.droppableId.split('-')[1] as keyof BoardItemsProps; // Explicitly define the type of destCategory
             const removed = newBoardItems[sourceCategory].splice(source.index, 1)[0];
             newBoardItems[destCategory].splice(destination.index, 0, removed);
             setBoardItems(newBoardItems);
@@ -87,7 +75,7 @@ const TierList = () => {
             let newItems;
             if (source.droppableId.startsWith('board-')) {
                 const category = source.droppableId.split('-')[1];
-                newItems = reorder(boardItems[category as keyof BoardItems], source.index, destination.index);
+                newItems = reorder(boardItems[category as keyof BoardItemsProps], source.index, destination.index);
                 setBoardItems({ ...boardItems, [category]: newItems });
             } else {
                 newItems = reorder(choicesItems, source.index, destination.index);
