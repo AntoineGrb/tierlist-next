@@ -16,6 +16,8 @@ export interface ListProps {
     title: string;
     description: string;
     cardImageUrl: string;
+    category: string;
+    isPopular: boolean;
     items: ItemProps[];
 }
 

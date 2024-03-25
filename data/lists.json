@@ -56,7 +56,7 @@
         "title": "One Piece Arcs",
         "description": "This tier list categorizes the arcs of One Piece into tiers based on their storytelling depth, character development, and overall impact on the main narrative. From the emotional highs of the Enies Lobby arc to the epic scale of the Marineford arc, this list ranks the most unforgettable adventures of Luffy and his crew.",
         "cardImageUrl": "/assets/items/onepiece-arcs/card-image.jpg",
-        "category": "Manga",
+        "category": "Mangas",
         "isPopular": true,
         "items": [
             { "name": "Alabasta", "itemImageUrl":"/assets/items/onepiece-arcs/alabasta.jpg"},

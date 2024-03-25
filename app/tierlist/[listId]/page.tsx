@@ -20,7 +20,9 @@ const TierList = ({params} : {params: {listId: string}}) => {
         title: "",
         description: "",
         cardImageUrl: "",
-        items: []
+        items: [],
+        category: "",
+        isPopular: false,
     });
 
     const [boardItems, setBoardItems] = useState<BoardItemsProps>({
