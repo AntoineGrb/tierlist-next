@@ -8,6 +8,8 @@ export default async function Home() {
   const lists: ListProps[] = await getLists();
   console.log('mes listes : ' , lists)
 
+  //testing
+
   return (
     <main className="bg-black min-h-screen px-3 py-8">
       <section className="pb-4">
