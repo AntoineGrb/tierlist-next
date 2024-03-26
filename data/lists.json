@@ -72,5 +72,23 @@
             { "name": "Sabaody", "itemImageUrl":"/assets/items/onepiece-arcs/sabaody.png"},
             { "name": "Whole Cake Island", "itemImageUrl":"/assets/items/onepiece-arcs/whole-cake.png"}
         ]
+    },
+    {
+        "title": "Game of Thrones fighters",
+        "description": "This tier list evaluates the combat prowess of Game of Thrones characters, from the formidable swordsmanship of Jaime Lannister to the sheer brute strength of The Mountain. Characters are ranked based on their skill, strategy, and physical strength in battle, highlighting those who are a force to be reckoned with. ",
+        "cardImageUrl": "/assets/items/game-of-thrones-fight/card-image.png",
+        "category": "Movies",
+        "isPopular": true,
+        "items": [
+            { "name": "Brienne", "itemImageUrl":"/assets/items/game-of-thrones-fight/brienne.png"},
+            { "name": "Bronn", "itemImageUrl":"/assets/items/game-of-thrones-fight/bronn.jpg"},
+            { "name": "Ser Gregor Clegane", "itemImageUrl":"/assets/items/game-of-thrones-fight/gregor-clegane.png"},
+            { "name": "Jaime Lannister", "itemImageUrl":"/assets/items/game-of-thrones-fight/jaime-lannister.jpg"},
+            { "name": "Jon Snow", "itemImageUrl":"/assets/items/game-of-thrones-fight/jon-snow.png"},
+            { "name": "Jorah Mormont", "itemImageUrl":"/assets/items/game-of-thrones-fight/jorah-mormont.jpg"},
+            { "name": "Sandor Clegane", "itemImageUrl":"/assets/items/game-of-thrones-fight/sandor-clegane.jpg"},
+            { "name": "Stannis Baratheon", "itemImageUrl":"/assets/items/game-of-thrones-fight/tannis-baratheon.jpeg"},
+            { "name": "Tormund", "itemImageUrl":"/assets/items/game-of-thrones-fight/tormund.jpg"}
+        ]
     }
 ]
