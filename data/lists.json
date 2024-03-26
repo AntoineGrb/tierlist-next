@@ -87,13 +87,13 @@
             { "name": "Jon Snow", "itemImageUrl":"/assets/items/game-of-thrones-fight/jon-snow.png"},
             { "name": "Jorah Mormont", "itemImageUrl":"/assets/items/game-of-thrones-fight/jorah-mormont.jpg"},
             { "name": "Sandor Clegane", "itemImageUrl":"/assets/items/game-of-thrones-fight/sandor-clegane.jpg"},
-            { "name": "Stannis Baratheon", "itemImageUrl":"/assets/items/game-of-thrones-fight/tannis-baratheon.jpeg"},
+            { "name": "Stannis Baratheon", "itemImageUrl":"/assets/items/game-of-thrones-fight/stannis-baratheon.jpeg"},
             { "name": "Tormund", "itemImageUrl":"/assets/items/game-of-thrones-fight/tormund.jpg"}
         ]
     },
     {
         "title": "Christopher Nolan Movies",
-        "description": "This tier list ranks Christopher Nolan's films from the mind-bending intricacies of "Inception" to the emotional depth of "Interstellar". Films are evaluated based on their narrative complexity, visual innovation, and overall impact on cinema, showcasing Nolan's genius in pushing the boundaries of storytelling. ",
+        "description": "This tier list ranks Christopher Nolan's films from the mind-bending intricacies of 'Inception' to the emotional depth of 'Interstellar'. Films are evaluated based on their narrative complexity, visual innovation, and overall impact on cinema, showcasing Nolan's genius in pushing the boundaries of storytelling. ",
         "cardImageUrl": "/assets/items/nolan-movies/card-image.jpg",
         "category": "Movies",
         "isPopular": false,

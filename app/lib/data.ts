@@ -8,7 +8,6 @@ export const getLists = async () => {
             items: true
         }
     });
-    console.log("lists server : " , lists)
     return lists;
 }
 
@@ -21,6 +20,5 @@ export const getList = async (id: number) => {
             items: true
         }
     });
-    console.log("list server : " , list)
     return list;
 }
