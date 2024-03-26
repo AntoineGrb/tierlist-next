@@ -90,5 +90,25 @@
             { "name": "Stannis Baratheon", "itemImageUrl":"/assets/items/game-of-thrones-fight/tannis-baratheon.jpeg"},
             { "name": "Tormund", "itemImageUrl":"/assets/items/game-of-thrones-fight/tormund.jpg"}
         ]
+    },
+    {
+        "title": "Christopher Nolan Movies",
+        "description": "This tier list ranks Christopher Nolan's films from the mind-bending intricacies of "Inception" to the emotional depth of "Interstellar". Films are evaluated based on their narrative complexity, visual innovation, and overall impact on cinema, showcasing Nolan's genius in pushing the boundaries of storytelling. ",
+        "cardImageUrl": "/assets/items/nolan-movies/card-image.jpg",
+        "category": "Movies",
+        "isPopular": false,
+        "items": [
+            { "name": "Batman Begins", "itemImageUrl":"/assets/items/nolan-movies/batman-begins.jpg"},
+            { "name": "Dark Knight Rises", "itemImageUrl":"/assets/items/nolan-movies/dark-knight-rises.jpg"},
+            { "name": "Dark Knight", "itemImageUrl":"/assets/items/nolan-movies/dark-knight.jpg"},
+            { "name": "Dunkerque", "itemImageUrl":"/assets/items/nolan-movies/dunkerque.jpg"},
+            { "name": "Inception", "itemImageUrl":"/assets/items/nolan-movies/inception.jpg"},
+            { "name": "Insomnia", "itemImageUrl":"/assets/items/nolan-movies/insomnia.jpg"},
+            { "name": "Interstellar", "itemImageUrl":"/assets/items/nolan-movies/interstellar.jpg"},
+            { "name": "Memento", "itemImageUrl":"/assets/items/nolan-movies/memento.jpg"},
+            { "name": "Oppenheimer", "itemImageUrl":"/assets/items/nolan-movies/oppenheimer.jpg"},
+            { "name": "Le Prestige", "itemImageUrl":"/assets/items/nolan-movies/prestige.jpg"},
+            { "name": "Tenet", "itemImageUrl":"/assets/items/nolan-movies/tenet.jpg"}
+        ]
     }
 ]
