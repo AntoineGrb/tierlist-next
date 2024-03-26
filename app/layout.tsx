@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter , Bangers, Luckiest_Guy, Oswald, Raleway } from "next/font/google";
 import { MenuProvider } from "@/src/context/menuContext";
 import Header from "@/src/components/header/page";
+import Footer from "@/src/components/footer/page";
 import MenuMobile from "@/src/components/menuMobile/page";
 
 interface RootLayoutProps {
@@ -31,6 +32,7 @@ export default function RootLayout({children} : RootLayoutProps) {
               <main className="max-w-7xl mx-auto">
                 {children}
               </main>
+              <Footer />
           </MenuProvider>
         </body>
     </html>

@@ -20,7 +20,7 @@ const Header = () => {
         <header className='px-4 py-6 bg-black flex items-center justify-between border-b-2 border-b-white'>
             <Link href={'/'}>
                 <div className='flex items-center gap-2'>
-                    <Image src='/assets/logo/logo test.png' alt='logo' width={30} height={30}/>
+                    <Image src='/assets/logo/logo1.png' alt='logo' width={30} height={30}/>
                     <h1 className='text-white'> S-TIER LIST </h1>
                 </div>
             </Link>
