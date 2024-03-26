@@ -49,4 +49,10 @@ export interface ItemProps {
     itemImageUrl: string;
 }
 
+export interface ButtonProps {
+    text: string;
+    // onClick: () => void;
+    // className?: string;
+}
+
 

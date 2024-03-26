@@ -11,10 +11,10 @@ export default async function Home() {
   //testing
 
   return (
-    <main className="bg-black min-h-screen px-3 py-10">
+    <main className="bg-black min-h-screen px-3 py-10 lg:pt-20">
       <section className="pb-4">
-        <h2 className="font-oswald text-3xl pb-6"> CREATE YOUR TIER LIST IN A FEW SECONDS </h2>
-        <p className=" text-justify"> Discover the ultimate tool for bringing your tier lists to life, all at your fingertips. Whether you're a fervent fan of gaming, movies, sports, or even programming languages, our platform empowers you to swiftly craft bespoke tier lists or utilize our vast library of templates. Dive into a world where your opinions are visualized in a compelling, organized manner. Perfect for enthusiasts eager to categorize their favorites or communities looking to debate the best and worst in any category. </p>
+        <h2 className="font-oswald text-4xl pb-6 lg:text-5xl"> Create your tier list in a few seconds </h2>
+        <p className=" text-justify lg:text-lg"> Discover the ultimate tool for bringing your tier lists to life, all at your fingertips. Whether you're a fervent fan of gaming, movies, sports, or even programming languages, our platform empowers you to swiftly craft bespoke tier lists or utilize our vast library of templates. Dive into a world where your opinions are visualized in a compelling, organized manner. Perfect for enthusiasts eager to categorize their favorites or communities looking to debate the best and worst in any category. </p>
       </section>
       <CardsList title="Populars" lists={lists.filter(list => list.isPopular)} />
       <CardsList title="Sports" lists={lists.filter(list => list.category === 'Sports')} />

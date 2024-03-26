@@ -6,8 +6,7 @@ import { DragDropContext, DropResult, Droppable, Draggable } from 'react-beautif
 import { useMediaQuery } from 'usehooks-ts';
 import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
-// import list from '@/src/data/lists/programming/list';
-// import { getList } from "../../../app/lib/data";
+import Button from '@/src/components/button/page';
 
 const TierList = ({params} : {params: {listId: string}}) => {
 
@@ -60,14 +59,14 @@ const TierList = ({params} : {params: {listId: string}}) => {
 
     //Move items between lists
     //!Unused
-    const move = (source: ItemProps[], destination: ItemProps[], droppableSource: any, droppableDestination: any) => {
-        const sourceClone = Array.from(source);
-        const destClone = Array.from(destination);
-        const [removed] = sourceClone.splice(droppableSource.index, 1);
-        destClone.splice(droppableDestination.index, 0, removed);
-        const result = { source: sourceClone, destination: destClone };
-        return result;
-    }
+    // const move = (source: ItemProps[], destination: ItemProps[], droppableSource: any, droppableDestination: any) => {
+    //     const sourceClone = Array.from(source);
+    //     const destClone = Array.from(destination);
+    //     const [removed] = sourceClone.splice(droppableSource.index, 1);
+    //     destClone.splice(droppableDestination.index, 0, removed);
+    //     const result = { source: sourceClone, destination: destClone };
+    //     return result;
+    // }
 
     //Handle end of drag and drop
     const onDragEnd = (result: DropResult) => {
@@ -116,22 +115,18 @@ const TierList = ({params} : {params: {listId: string}}) => {
     return (
         <DragDropContext onDragEnd={onDragEnd}>
 
-            <main className="bg-black min-h-screen px-3 py-10">
-                <section className="pb-4 mb-4">
-                    <h2 className=" pb-4"> {list.title} </h2>
-                    <p className=' text-justify'> {list.description}</p>
+            <main className="bg-black min-h-screen px-3 py-10 lg:pt-20">
+                <section className="pb-4 mb-4 lg:pb-12">
+                    <h2 className=" pb-4 lg:pb-6 lg:text-5xl"> {list.title} </h2>
+                    <p className=' text-justify lg:text-lg'> {list.description}</p>
                 </section>
 
                 <Board items={boardItems} isMobile={isMobile} />
                 <Choices items={choicesItems} isMobile={isMobile} />     
 
-                <section className='flex flex-col gap-3 justify-center items-center mt-6 mb-32'>
-                    <button className='bg-white text-black w-2/3 p-1 rounded-sm'>
-                        Save
-                    </button>
-                    <button className='bg-white text-black w-2/3 p-1 rounded-sm'>
-                        Reset
-                    </button>
+                <section className='flex flex-col gap-3 justify-center items-center mt-16 mb-32'>
+                    <Button text='Save' />
+                    <Button text='Share' />
                 </section>
                 
             </main>
