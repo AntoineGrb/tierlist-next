@@ -1,3 +1,11 @@
+/* 
+import {Card, Skeleton} from "@nextui-org/react";
+Dans le return : 
+<Skeleton className="rounded-lg">
+    <div className="h-24 rounded-lg bg-default-300"></div>
+</Skeleton>
+*/
+
 const TierlistSkeleton = () => {
     return (
       <>
