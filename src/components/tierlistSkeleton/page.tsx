@@ -17,4 +17,4 @@ const TierlistSkeleton = () => {
     );
 };
 
-export default Skeleton;
+export default TierlistSkeleton;
