@@ -7,6 +7,10 @@ export default function MenuMobile() {
 
   const { isMenuMobileOpen } = useMenu()!;
 
+  /* Return le menu dans tous les cas et remplace le nav par le code suivant : 
+  <nav className={`absolute w-full z-10 bg-black p-4 border-b border-white flex flex-col gap-3
+      transition-all ease-in-out duration-500 ${isMenuMobileOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}> */
+
     return (
 
       isMenuMobileOpen && (
