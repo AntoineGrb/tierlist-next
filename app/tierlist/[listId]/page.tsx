@@ -145,7 +145,7 @@ const TierList = ({params} : {params: {listId: string}}) => {
                     </section>
                     </>
                 )}
-                
+
             </main>
         </DragDropContext>
       );
