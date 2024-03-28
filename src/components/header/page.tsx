@@ -13,8 +13,6 @@ const Header = () => {
     const { toggleMenu , isMenuMobileOpen } = useMenu()!;
     const isDesktop = useMediaQuery('(min-width: 1024px)');
 
-    //! Tester d'ajouter un icone de menu animé (cf. favoris Chrome)
-
     return (
     
         <header className='px-4 py-6 bg-black flex items-center justify-between border-b-2 border-b-white'>
@@ -28,15 +26,11 @@ const Header = () => {
             {isDesktop ? (
                 <Menu />
             ) : (
-                <>
-                    {!isMenuMobileOpen ? (
-                        <FaBars onClick={toggleMenu} className='text-white text-2xl justify-self-end cursor-pointer' />
-                    ) : (
-                        <FaTimes onClick={toggleMenu} className='text-white text-2xl justify-self-end cursor-pointer' />
-                    )}
-                </>
+                <div className='relative text-white text-2xl justify-self-end cursor-pointer'>
+                     <FaBars onClick={toggleMenu} className={`absolute text-white text-2xl justify-self-end cursor-pointer transition-opacity ease-in duration-400 ${isMenuMobileOpen ? 'opacity-0' : 'opacity-100'}`} />
+                    <FaTimes onClick={toggleMenu} className={`text-white text-2xl justify-self-end cursor-pointer transition-opacity ease-in duration-400 ${isMenuMobileOpen ? 'opacity-100' : 'opacity-0'}`} />
+                </div>
             )}
-        
         </header>
     );
 };

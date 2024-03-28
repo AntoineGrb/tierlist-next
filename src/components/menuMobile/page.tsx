@@ -12,16 +12,13 @@ export default function MenuMobile() {
       transition-all ease-in-out duration-500 ${isMenuMobileOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}> */
 
     return (
-
-      isMenuMobileOpen && (
-        <nav>
-          <ul className={`bg-black z-10 absolute w-full p-4 border-b border-white flex flex-col gap-3`}>
+      <nav className={`bg-black z-10 absolute w-full transition-all ease-in-out duration-500 overflow-hidden ${isMenuMobileOpen ? 'max-h-screen' : 'max-h-0'}`}>
+          <ul className='p-4 border-b border-white flex flex-col gap-3'>
               <li className='text-lg'> <Link href={'/'}>CREATE TEMPLATE </Link> </li>
               <li className='text-lg'> <Link href={'/'}>CATEGORIES</Link> </li>
               <li className='text-lg'> <Link href={'/'}>LAST TIER LISTS</Link> </li>
               <li className='text-lg'> <Link href={'/'}>LOGIN</Link> </li>
           </ul>
       </nav>
-      )
     );
 }
