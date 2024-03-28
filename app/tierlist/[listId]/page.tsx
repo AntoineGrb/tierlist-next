@@ -12,9 +12,9 @@ const TierList = ({params} : {params: {listId: string}}) => {
 
     const isMobile = useMediaQuery('(max-width: 640px)');
     const listId = Number(params.listId);
-    console.log('listId ', listId)
 
-    const [list, setList] = useState<ListProps>({
+    //Init states and variables
+    const [list, setList] = useState<ListProps>({ //Initial state of list
         id: 0,
         title: "",
         description: "",
@@ -23,15 +23,15 @@ const TierList = ({params} : {params: {listId: string}}) => {
         category: "",
         isPopular: false,
     });
-
-    const [boardItems, setBoardItems] = useState<BoardItemsProps>({
+    const [boardItems, setBoardItems] = useState<BoardItemsProps>({ //Initial state of boardItems with empty categories arrays
         S: [],
         A: [],
         B: [],
         C: [],
         D: [], 
     });
-    const [choicesItems, setChoicesItems] = useState<ItemProps[]>(list.items);
+    const [choicesItems, setChoicesItems] = useState<ItemProps[]>(list.items); //Initial state of choicesItems with list items
+    const [initialChoices, setInitialChoices] = useState<ItemProps[]>(list.items); //Initial state of initialChoices with list items, to allow reset
 
     useEffect(() => {
         const fetchData = async () => {
@@ -44,6 +44,7 @@ const TierList = ({params} : {params: {listId: string}}) => {
 
             const data = await response.json();
             setList(data);
+            setInitialChoices(data.items);
             setChoicesItems(data.items);
         };
         fetchData();
@@ -111,6 +112,17 @@ const TierList = ({params} : {params: {listId: string}}) => {
             }
         }
     };
+
+    const resetBoard = () => {
+        setBoardItems({
+            S: [],
+            A: [],
+            B: [],
+            C: [],
+            D: [],
+        });
+        setChoicesItems(initialChoices);
+    }
     
     return (
         <DragDropContext onDragEnd={onDragEnd}>
@@ -125,8 +137,8 @@ const TierList = ({params} : {params: {listId: string}}) => {
                 <Choices items={choicesItems} isMobile={isMobile} />     
 
                 <section className='flex flex-col gap-3 justify-center items-center mt-16 mb-32'>
-                    <Button text='Save' />
-                    <Button text='Share' />
+                    <Button text='Reset your list' action={resetBoard} />
+                    <Button text='Save your list' action={() => console.log('Sauvegarder la liste')} />
                 </section>
                 
             </main>

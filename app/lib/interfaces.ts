@@ -51,8 +51,8 @@ export interface ItemProps {
 
 export interface ButtonProps {
     text: string;
-    // onClick: () => void;
-    // className?: string;
+    action: () => void;
+    style?: string;
 }
 
 
