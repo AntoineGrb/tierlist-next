@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# S-Tier List 🥇🔠
 
-## Getting Started
+S-Tier List est une application permettant de créer des tier lists. Un certain nombre de templates sont disponibles sur l'application, et il est également possible de construire son propre template en y apportant des images. 
 
-First, run the development server:
+## Versionning 💻
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**!! Le projet est toujours en cours de développement !!**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Version V1 (actuelle)
+Features : 
+- Accéder à différents templates à partir de la page d'accueil
+- Utiliser un template pour faire une tier list
+- Responsive : version mobile & version desktop
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Version V2 (à venir)
+Features : 
+- Rajout de plusieurs templates de tier list
+- Créer son template en y important ses propres images
+- Enregistrer une capture d'écran de sa tierlist
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Version V3 (à venir)
+Features : 
+- Créer un compte et se connecter
+- Accéder à une page Profil pour retrouver ses templates favoris et ses tier lists enregistrées
 
-## Learn More
+L'appli est uploadée sur Vercel, voici le lien : [https://tierlist-next.vercel.app/](https://tierlist-next.vercel.app/) ! 
 
-To learn more about Next.js, take a look at the following resources:
+## Présentation 🌟
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ce projet a pour objectif de créer une application web permettant de créer des tier lists. L'objectif : permettre aux utilisateurs de créer rapidement une tier list, qu'ils soient sur un ordinateur ou sur leur téléphone. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Je souhaite prévoir plusieurs templates prédéfinis, stockés dans une base de données, et mettre à disposition un template vide permettant de charger n'importe quelles images. Une fois la tierlist finalisée, l'utilisateur pourra la sauvegarder sous forme d'image.
 
-## Deploy on Vercel
+## Comment ça marche ? 📖
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**A venir...**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Technologies utilisées 🛠️
+
+- **HTML / CSS**
+- **Next.js**
+- **Tailwind CSS**
+- **PostegreSQL**
+- **Vercel**
+
+## Auteur 👩‍💻👨‍💻
+
+C'est moi ! Si vous voulez en savoir plus sur moi ou discuter de ce projet ou d'autres sujets intéressants, n'hésitez pas à me suivre ou à m'envoyer un message.

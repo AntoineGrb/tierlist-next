@@ -13,7 +13,7 @@ const Board = ({items, isMobile}: BoardProps) => {
         {Object.entries(items).map(([category, categoryItems]) => (
             <Droppable droppableId={`board-${category}`} key={category} direction='horizontal'>
                 {(provided, snapshot) => (
-                    <div className='flex w-full min-w-24 min-h-32 border-b-2 border-black lg:min-h-24'>
+                    <div className='flex w-full min-w-24 min-h-28 border-b-2 border-black'>
                         <div className={`w-1/4 flex justify-center items-center ${getBackgroundColor(category)} p-3`}>
                             <p className='text-black'>{category}</p>
                         </div>
@@ -22,7 +22,7 @@ const Board = ({items, isMobile}: BoardProps) => {
                                 <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
                                     {(provided) => (
                                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                            <Image src={item.itemImageUrl} alt={item.name} width={isMobile ? 65 : 80} height={isMobile ? 65 : 80} />
+                                            <Image src={item.itemImageUrl} alt={item.name} width={100} height={100} />
                                         </div>
                                     )}
                                 </Draggable>
