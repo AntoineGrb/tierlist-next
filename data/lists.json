@@ -76,7 +76,7 @@
     {
         "title": "Game of Thrones fighters",
         "description": "This tier list evaluates the combat prowess of Game of Thrones characters, from the formidable swordsmanship of Jaime Lannister to the sheer brute strength of The Mountain. Characters are ranked based on their skill, strategy, and physical strength in battle, highlighting those who are a force to be reckoned with. ",
-        "cardImageUrl": "/assets/items/game-of-thrones-fight/card-image.png",
+        "cardImageUrl": "/assets/items/game-of-thrones-fight/card-image.jpg",
         "category": "Movies",
         "isPopular": true,
         "items": [
@@ -109,6 +109,48 @@
             { "name": "Oppenheimer", "itemImageUrl":"/assets/items/nolan-movies/oppenheimer.jpg"},
             { "name": "Le Prestige", "itemImageUrl":"/assets/items/nolan-movies/prestige.jpg"},
             { "name": "Tenet", "itemImageUrl":"/assets/items/nolan-movies/tenet.jpg"}
+        ]
+    },
+    {
+        "title": "Movie Sagas",
+        "description": "This tier list ranks the greatest movie sagas of all time, diving into cinematic universes that have captivated audiences across generations. From the interstellar battles of 'Star Wars' to the magical journey of 'Harry Potter', each saga is evaluated based on its storytelling, character development, and cultural impact. Discover which sagas have defined the art of filmmaking and continue to enchant viewers worldwide. ",
+        "cardImageUrl": "/assets/items/movie-sagas/card-image.png",
+        "category": "Movies",
+        "isPopular": true,
+        "items": [
+            { "name": "Back to the future", "itemImageUrl":"/assets/items/movie-sagas/back-to-future.jpg"},
+            { "name": "Harry Potter", "itemImageUrl":"/assets/items/movie-sagas/harry-potter.jpg"},
+            { "name": "Indiana Jones", "itemImageUrl":"/assets/items/movie-sagas/indiana-jones.jpg"},
+            { "name": "James Bond", "itemImageUrl":"/assets/items/movie-sagas/james-bond.jpg"},
+            { "name": "Jurassic Park", "itemImageUrl":"/assets/items/movie-sagas/jurassic-park.png"},
+            { "name": "Lord of the Rings", "itemImageUrl":"/assets/items/movie-sagas/lord-of-rings.png"},
+            { "name": "Pirates of the Caribbean", "itemImageUrl":"/assets/items/movie-sagas/pirates-caraibes.jpg"},
+            { "name": "Star Wars", "itemImageUrl":"/assets/items/movie-sagas/star-wars.jpg"},
+            { "name": "Twilight", "itemImageUrl":"/assets/items/movie-sagas/twilight.jpg"},
+            { "name": "Batman", "itemImageUrl":"/assets/items/movie-sagas/batman.png"},
+            { "name": "Matrix", "itemImageUrl":"/assets/items/movie-sagas/matrix.jpg"},
+            { "name": "Hunger Games", "itemImageUrl":"/assets/items/movie-sagas/hunger-games.png"},
+            { "name": "Fast and Furious", "itemImageUrl":"/assets/items/movie-sagas/fast-and-furious.jpg"},
+            { "name": "X-men", "itemImageUrl":"/assets/items/movie-sagas/x-men.jpg"},
+            { "name": "Marvel", "itemImageUrl":"/assets/items/movie-sagas/marvel.jpg"}
+        ]
+    },
+    {
+        "title": "Streaming Platforms",
+        "description": "This tier list evaluates the best streaming platforms based on their content library, user interface, and overall streaming experience. From the vast selections of Netflix and Disney+ to the niche offerings of platforms like Crunchyroll and Shudder, find out which services are leading the digital entertainment revolution and offering viewers the best in movies, TV shows, and original content. ",
+        "cardImageUrl": "/assets/items/streaming-platforms/card-image.png",
+        "category": "Movies",
+        "isPopular": false,
+        "items": [
+            { "name": "Apple TV", "itemImageUrl":"/assets/items/streaming-platforms/apple.png"},
+            { "name": "Amazon Prime Video", "itemImageUrl":"/assets/items/streaming-platforms/prime.jpg"},
+            { "name": "Disney+", "itemImageUrl":"/assets/items/streaming-platforms/disney.png"},
+            { "name": "Netflix", "itemImageUrl":"/assets/items/streaming-platforms/netflix.png"},
+            { "name": "Paramount+", "itemImageUrl":"/assets/items/streaming-platforms/paramount.png"},
+            { "name": "MyCanal", "itemImageUrl":"/assets/items/streaming-platforms/canal.png"},
+            { "name": "OCS", "itemImageUrl":"/assets/items/streaming-platforms/ocs.png"},
+            { "name": "HBO Max", "itemImageUrl":"/assets/items/streaming-platforms/hbo.png"},
+            { "name": "Youtube", "itemImageUrl":"/assets/items/streaming-platforms/youtube.png"}
         ]
     }
 ]
