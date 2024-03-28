@@ -30,9 +30,8 @@ const TierList = ({params} : {params: {listId: string}}) => {
             name: file.name,
             itemImageUrl: URL.createObjectURL(file)
         }))
-        console.log(newItems)
-        setInitialChoices(newItems);
-        setChoicesItems(newItems);
+        setInitialChoices([...newItems]); // Mise à jour pour refléter l'état initial après chargement
+        setChoicesItems([...newItems]);
     }
 
     //Reorder items
@@ -97,7 +96,7 @@ const TierList = ({params} : {params: {listId: string}}) => {
             C: [],
             D: [],
         });
-        setChoicesItems(initialChoices);
+        setChoicesItems([...initialChoices]);
     }
     
     return (
