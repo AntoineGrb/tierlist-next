@@ -7,6 +7,7 @@ import { useMediaQuery } from 'usehooks-ts';
 import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
 import Button from '@/src/components/button/page';
+import TierlistSkeleton from '@/src/components/tierlistSkeleton/page';
 
 const TierList = ({params} : {params: {listId: string}}) => {
 
@@ -32,20 +33,30 @@ const TierList = ({params} : {params: {listId: string}}) => {
     });
     const [choicesItems, setChoicesItems] = useState<ItemProps[]>(list.items); //Initial state of choicesItems with list items
     const [initialChoices, setInitialChoices] = useState<ItemProps[]>(list.items); //Initial state of initialChoices with list items, to allow reset
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(`/api/getList?id=${listId}`);
+            try {
+                const response = await fetch(`/api/getList?id=${listId}`);
 
-            if (!response.ok) {
+                if (!response.ok) {
+                    console.log('Error to get list')
+                    return;
+                }
+
+                const data = await response.json();
+                setList(data);
+                setInitialChoices(data.items);
+                setChoicesItems(data.items);
+
+            } catch (error) {
                 console.log('Error to get list')
-                return;
+                
+            } finally {
+                setIsLoading(false);
             }
-
-            const data = await response.json();
-            setList(data);
-            setInitialChoices(data.items);
-            setChoicesItems(data.items);
+            
         };
         fetchData();
     }, [listId]);
@@ -57,17 +68,6 @@ const TierList = ({params} : {params: {listId: string}}) => {
         result.splice(endIndex, 0, removed);
         return result;
     }
-
-    //Move items between lists
-    //!Unused
-    // const move = (source: ItemProps[], destination: ItemProps[], droppableSource: any, droppableDestination: any) => {
-    //     const sourceClone = Array.from(source);
-    //     const destClone = Array.from(destination);
-    //     const [removed] = sourceClone.splice(droppableSource.index, 1);
-    //     destClone.splice(droppableDestination.index, 0, removed);
-    //     const result = { source: sourceClone, destination: destClone };
-    //     return result;
-    // }
 
     //Handle end of drag and drop
     const onDragEnd = (result: DropResult) => {
@@ -128,18 +128,23 @@ const TierList = ({params} : {params: {listId: string}}) => {
         <DragDropContext onDragEnd={onDragEnd}>
 
             <main className="bg-black min-h-screen w-full px-3 py-10 lg:pt-20">
-                <section className="pb-4 mb-4 lg:pb-12">
-                    <h2 className=" pb-4 lg:pb-6 lg:text-5xl"> {list.title} </h2>
-                    <p className=' text-justify lg:text-lg'> {list.description}</p>
-                </section>
 
-                <Board items={boardItems} isMobile={isMobile} />
-                <Choices items={choicesItems} isMobile={isMobile} />     
+                {isLoading ? <TierlistSkeleton /> : (
+                    <>
+                    <section className="pb-4 mb-4 lg:pb-12">
+                        <h2 className=" pb-4 lg:pb-6 lg:text-5xl"> {list.title} </h2>
+                        <p className=' text-justify lg:text-lg'> {list.description}</p>
+                    </section>
 
-                <section className='flex flex-col gap-3 justify-center items-center mt-16 mb-32'>
-                    <Button text='Reset your list' action={resetBoard} />
-                    <Button text='Save your list' action={() => console.log('Sauvegarder la liste')} />
-                </section>
+                    <Board items={boardItems} isMobile={isMobile} />
+                    <Choices items={choicesItems} isMobile={isMobile} />     
+
+                    <section className='flex flex-col gap-3 justify-center items-center mt-16 mb-32'>
+                        <Button text='Reset your list' action={resetBoard} />
+                        <Button text='Save your list' action={() => console.log('Sauvegarder la liste')} />
+                    </section>
+                    </>
+                )}
                 
             </main>
         </DragDropContext>

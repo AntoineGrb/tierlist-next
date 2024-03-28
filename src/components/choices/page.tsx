@@ -15,7 +15,7 @@ const Choices = ({items, isMobile}: ChoicesProps) => {
                     {items.map((item, index) => (
                         <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
                             {(provided) => (
-                                <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="min-w-[65px]">
+                                <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="min-w-[80px]">
                                     <Image src={item.itemImageUrl} alt={item.name} width={isMobile ? 80 : 100} height={isMobile ? 80 : 100}  />
                                 </div>
                             )}

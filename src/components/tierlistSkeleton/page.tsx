@@ -1,27 +1,34 @@
-/* 
-import {Card, Skeleton} from "@nextui-org/react";
-Dans le return : 
-<Skeleton className="rounded-lg">
-    <div className="h-24 rounded-lg bg-default-300"></div>
-</Skeleton>
-*/
-
 const TierlistSkeleton = () => {
     return (
-      <>
-        <div className="px-3 py-10 lg:pt-20">
-            <div className="pb-4 flex rounded-md bg-gray-200 lg:pb-6"></div>
-            <div className="pb-8 flex rounded-md bg-gray-200 lg:pb-12"></div>
+      <div className="w-full flex flex-col">
+        <div className="w-full py-12">
+            <div className="h-10 mb-4 flex rounded-lg bg-gray-500 lg:pb-6 animate-pulse"></div>
+            <div className="h-20 flex rounded-lg bg-gray-500 lg:pb-12 animate-pulse"></div>
         </div>
-        <div className="flex min-w-24 min-h-32 rounded-md bg-gray-200">
-          <div className="flex rounded-xl bg-gray-300"></div>
-          <div className="flex rounded-xl bg-gray-300"></div>
-          <div className="flex rounded-xl bg-gray-300"></div>
-          <div className="flex rounded-xl bg-gray-300"></div>
+        <div className="w-full flex flex-col h-96 rounded-lg bg-gray-600 animate-pulse">
+          <div className="w-full h-1/5 flex">
+            <div className="flex w-1/4 bg-gray-500 animate-pulse"></div>
+            <div className="flex w-3/4 bg-gray-700 animate-pulse"></div>
+          </div>
+          <div className="w-full h-1/5 flex">
+            <div className="flex w-1/4 bg-gray-500 animate-pulse"></div>
+            <div className="flex w-3/4 bg-gray-700 animate-pulse"></div>
+          </div>
+          <div className="w-full h-1/5 flex">
+            <div className="flex w-1/4 bg-gray-500 animate-pulse"></div>
+            <div className="flex w-3/4 bg-gray-700 animate-pulse"></div>
+          </div>
+          <div className="w-full h-1/5 flex">
+            <div className="flex w-1/4 bg-gray-500 animate-pulse"></div>
+            <div className="flex w-3/4 bg-gray-700 animate-pulse"></div>
+          </div>
+          <div className="w-full h-1/5 flex">
+            <div className="flex w-1/4 bg-gray-500 animate-pulse"></div>
+            <div className="flex w-3/4 bg-gray-700 animate-pulse"></div>
+          </div>
+
         </div>
-        <div className="fixed bottom-0 w-full min-h-3 flex rounded-md bg-gray-100">
-        </div>
-        </>
+      </div>
     );
 };
 

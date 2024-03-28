@@ -22,7 +22,7 @@ const Board = ({items, isMobile}: BoardProps) => {
                                 <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
                                     {(provided) => (
                                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                            <Image src={item.itemImageUrl} alt={item.name} width={100} height={100} />
+                                            <Image src={item.itemImageUrl} alt={item.name} width={isMobile ? 80 : 100} height={isMobile ? 80 : 100} />
                                         </div>
                                     )}
                                 </Draggable>
