@@ -115,7 +115,7 @@ const TierList = ({params} : {params: {listId: string}}) => {
     return (
         <DragDropContext onDragEnd={onDragEnd}>
 
-            <main className="bg-black min-h-screen px-3 py-10 lg:pt-20">
+            <main className="bg-black min-h-screen w-full px-3 py-10 lg:pt-20">
                 <section className="pb-4 mb-4 lg:pb-12">
                     <h2 className=" pb-4 lg:pb-6 lg:text-5xl"> {list.title} </h2>
                     <p className=' text-justify lg:text-lg'> {list.description}</p>
