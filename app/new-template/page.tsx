@@ -8,7 +8,7 @@ import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
 import Button from '@/src/components/button/page';
 
-const TierList = ({params} : {params: {listId: string}}) => {
+const TierList = () => {
 
     const isMobile = useMediaQuery('(max-width: 640px)');
 
@@ -21,6 +21,14 @@ const TierList = ({params} : {params: {listId: string}}) => {
     });
     const [choicesItems, setChoicesItems] = useState<ItemProps[]>([]); //Initial state of choicesItems with list items
     const [initialChoices, setInitialChoices] = useState<ItemProps[]>([]); //Initial state of initialChoices with list items, to allow reset
+    const [templateInfos, setTemplateInfos] = useState({
+        title:'Your template title',
+        description: 'Describe your template here',
+    })
+
+    const handleTemplateInfosChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTemplateInfos({...templateInfos, [e.target.name]: e.target.value})
+    }
 
     //Handle file input change
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => { 
@@ -104,9 +112,14 @@ const TierList = ({params} : {params: {listId: string}}) => {
 
             <main className="bg-black min-h-screen w-full px-3 py-10 lg:pt-20">
 
-                <section className="pb-4 mb-4 lg:pb-12">
-                    <h2 className=" pb-4 lg:pb-6 lg:text-5xl"> Titre à modifier </h2>
-                    <p className=' text-justify lg:text-lg'> Description à modifier </p>
+                {/* <section className="pb-4 mb-4 lg:pb-12">
+                    <h2 className=" pb-4 lg:pb-6 lg:text-5xl"> {templateInfos.title} </h2>
+                    <p className=' text-justify lg:text-lg'> {templateInfos.description} </p>
+                </section> */}
+
+                <section className=" flex flex-col pb-4 mb-4 lg:pb-12">
+                    <input name='title' value={templateInfos.title} onChange={handleTemplateInfosChange} className='bg-black text-white font-oswald text-3xl pb-4 lg:pb-6 lg:text-5xl' />
+                    <input name='description' value={templateInfos.description} onChange={handleTemplateInfosChange} className='bg-black text-white font-raleway text-base text-justify lg:text-lg' />
                 </section>
 
                 <Board items={boardItems} isMobile={isMobile} />
