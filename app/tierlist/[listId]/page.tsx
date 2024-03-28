@@ -8,6 +8,7 @@ import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
 import Button from '@/src/components/button/page';
 import TierlistSkeleton from '@/src/components/tierlistSkeleton/page';
+import ErrorMessage from '@/src/components/errorMessage/page';
 
 const TierList = ({params} : {params: {listId: string}}) => {
 
@@ -34,14 +35,17 @@ const TierList = ({params} : {params: {listId: string}}) => {
     const [choicesItems, setChoicesItems] = useState<ItemProps[]>(list.items); //Initial state of choicesItems with list items
     const [initialChoices, setInitialChoices] = useState<ItemProps[]>(list.items); //Initial state of initialChoices with list items, to allow reset
     const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
+            setIsError(false)
             try {
                 const response = await fetch(`/api/getList?id=${listId}`);
 
                 if (!response.ok) {
-                    console.log('Error to get list')
+                    console.log('List does not exist');
+                    setIsError(true);
                     return;
                 }
 
@@ -51,7 +55,8 @@ const TierList = ({params} : {params: {listId: string}}) => {
                 setChoicesItems(data.items);
 
             } catch (error) {
-                console.log('Error to get list')
+                console.log('Error to get list');
+                setIsError(true);
                 
             } finally {
                 setIsLoading(false);
@@ -129,7 +134,9 @@ const TierList = ({params} : {params: {listId: string}}) => {
 
             <main className="bg-black min-h-screen w-full px-3 py-10 lg:pt-20">
 
-                {isLoading ? <TierlistSkeleton /> : (
+                {isLoading ? <TierlistSkeleton /> : 
+                 isError ? <ErrorMessage message='List does not exists !' /> : 
+                 (
                     <>
                     <section className="pb-4 mb-4 lg:pb-12">
                         <h2 className=" pb-4 lg:pb-6 lg:text-5xl"> {list.title} </h2>

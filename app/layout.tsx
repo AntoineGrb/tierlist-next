@@ -29,7 +29,7 @@ export default function RootLayout({children} : RootLayoutProps) {
           <MenuProvider>
               <Header />
               <MenuMobile />
-              <main className="max-w-6xl mx-auto">
+              <main className=" flex flex-col grow max-w-6xl mx-auto">
                 {children}
               </main>
               <Footer />

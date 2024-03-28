@@ -12,7 +12,7 @@ export interface CardProps {
 
 //Props for each tierlist
 export interface ListProps {
-    id: number;
+    id: number | string;
     title: string;
     description: string;
     cardImageUrl: string;
@@ -53,6 +53,11 @@ export interface ButtonProps {
     text: string;
     action: () => void;
     style?: string;
+}
+
+//Error
+export interface ErrorMessageProps {
+    message: string
 }
 
 
