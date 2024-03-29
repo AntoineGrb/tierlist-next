@@ -26,6 +26,7 @@ const TierList = () => {
         description: 'Describe your template here',
     })
 
+    //Handle template's title & description modify by user
     const handleTemplateInfosChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTemplateInfos({...templateInfos, [e.target.name]: e.target.value})
     }
@@ -111,11 +112,6 @@ const TierList = () => {
         <DragDropContext onDragEnd={onDragEnd}>
 
             <main className="bg-black min-h-screen w-full px-3 py-10 lg:pt-20">
-
-                {/* <section className="pb-4 mb-4 lg:pb-12">
-                    <h2 className=" pb-4 lg:pb-6 lg:text-5xl"> {templateInfos.title} </h2>
-                    <p className=' text-justify lg:text-lg'> {templateInfos.description} </p>
-                </section> */}
 
                 <section className=" flex flex-col pb-4 mb-4 lg:pb-12">
                     <input name='title' value={templateInfos.title} onChange={handleTemplateInfosChange} className='bg-black text-white font-oswald text-3xl pb-4 lg:pb-6 lg:text-5xl' />
