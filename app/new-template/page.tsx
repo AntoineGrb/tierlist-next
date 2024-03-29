@@ -1,16 +1,14 @@
 'use client';
 
-import { ListProps, ItemProps, BoardItemsProps } from '../lib/interfaces';
+import { ItemProps, BoardItemsProps } from '../lib/interfaces';
 import React, {useState , useEffect} from 'react';
-import { DragDropContext, DropResult, Droppable, Draggable } from 'react-beautiful-dnd';
-import { useMediaQuery } from 'usehooks-ts';
+import { DragDropContext} from 'react-beautiful-dnd';
+import { useDragAndDrop } from '@/src/hooks/useDragAndDrop';
 import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
 import Button from '@/src/components/button/page';
 
 const TierList = () => {
-
-    const isMobile = useMediaQuery('(max-width: 640px)');
 
     const [boardItems, setBoardItems] = useState<BoardItemsProps>({ //Initial state of boardItems with empty categories arrays
         S: [],
@@ -43,59 +41,8 @@ const TierList = () => {
         setChoicesItems([...newItems]);
     }
 
-    //Reorder items
-    //! Handle drag and drop in utils functions
-    const reorder = (list: ItemProps[], startIndex: number, endIndex: number) => {
-        const result = Array.from(list);
-        const [removed] = result.splice(startIndex, 1);
-        result.splice(endIndex, 0, removed);
-        return result;
-    }
-
-    //Handle end of drag and drop
-    //! Handle drag and drop in utils functions
-    const onDragEnd = (result: DropResult) => {
-        const { source, destination } = result;
-    
-        if (!destination) {
-            return;
-        }
-
-        let newBoardItems: BoardItemsProps = { ...boardItems };
-
-        if (source.droppableId === 'choices' && destination.droppableId.startsWith('board-')) {
-            // Déplacement de Choices vers Board
-            const removed = choicesItems.splice(source.index, 1)[0];
-            const category = destination.droppableId.split('-')[1] as keyof BoardItemsProps;
-            const newBoardItems: BoardItemsProps = { ...boardItems };
-            newBoardItems[category].splice(destination.index, 0, removed);
-            setChoicesItems([...choicesItems]);
-            setBoardItems(newBoardItems);
-        } else if (destination.droppableId === 'choices' && source.droppableId.startsWith('board-')) {
-            // Déplacement de Board vers Choices
-            const removed = newBoardItems[source.droppableId.split('-')[1] as keyof BoardItemsProps].splice(source.index, 1)[0];
-            choicesItems.splice(destination.index, 0, removed);
-            setBoardItems(newBoardItems);
-            setChoicesItems([...choicesItems]);
-        } else if (source.droppableId.startsWith('board-') && destination.droppableId.startsWith('board-')) {
-            // Déplacement entre différentes zones du Board
-            const sourceCategory = source.droppableId.split('-')[1] as keyof BoardItemsProps; // Explicitly define the type of sourceCategory
-            const destCategory = destination.droppableId.split('-')[1] as keyof BoardItemsProps; // Explicitly define the type of destCategory
-            const removed = newBoardItems[sourceCategory].splice(source.index, 1)[0];
-            newBoardItems[destCategory].splice(destination.index, 0, removed);
-            setBoardItems(newBoardItems);
-        } else {
-            let newItems;
-            if (source.droppableId.startsWith('board-')) {
-                const category = source.droppableId.split('-')[1];
-                newItems = reorder(boardItems[category as keyof BoardItemsProps], source.index, destination.index);
-                setBoardItems({ ...boardItems, [category]: newItems });
-            } else {
-                newItems = reorder(choicesItems, source.index, destination.index);
-                setChoicesItems(newItems);
-            }
-        }
-    };
+    //Get onDragEnd function from useDragAndDrop hook
+    const { onDragEnd } = useDragAndDrop(boardItems, setBoardItems, choicesItems, setChoicesItems);
 
     const resetBoard = () => {
         setBoardItems({
@@ -114,15 +61,31 @@ const TierList = () => {
             <main className="bg-black min-h-screen w-full px-3 py-10 lg:pt-20">
 
                 <section className=" flex flex-col pb-4 mb-4 lg:pb-12">
-                    <input name='title' value={templateInfos.title} onChange={handleTemplateInfosChange} className='bg-black text-white font-oswald text-3xl pb-4 lg:pb-6 lg:text-5xl' />
-                    <input name='description' value={templateInfos.description} onChange={handleTemplateInfosChange} className='bg-black text-white font-raleway text-base text-justify lg:text-lg' />
+                    <input 
+                        name='title' 
+                        value={templateInfos.title} 
+                        onChange={handleTemplateInfosChange} 
+                        className='bg-black text-white font-oswald text-3xl pb-4 lg:pb-6 lg:text-5xl' 
+                    />
+                    <input 
+                        name='description' 
+                        value={templateInfos.description} 
+                        onChange={handleTemplateInfosChange} 
+                        className='bg-black text-white font-raleway text-base text-justify lg:text-lg' 
+                    />
                 </section>
 
-                <Board items={boardItems} isMobile={isMobile} />
-                <Choices items={choicesItems} isMobile={isMobile}/>  
+                <Board items={boardItems} />
+                <Choices items={choicesItems}/>  
 
-                <section className='p-3 mt-3 border border-white rounded-lg'>
-                    <input type='file' multiple onChange={handleFileChange} className='w-full'></input>
+                <section className='p-3 mt-3 border border-white rounded-lg flex justify-center'>
+                    <input 
+                        type='file' 
+                        multiple 
+                        onChange={handleFileChange} 
+                        className='w-[127px]'
+                        accept='.png, .jpg, .jpeg'
+                    /> 
                 </section> 
                 <section className='flex flex-col gap-3 justify-center items-center mt-16 mb-32'>
                     <Button text='Reset your list' action={resetBoard} />

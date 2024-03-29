@@ -2,7 +2,7 @@
 
 import { ListProps, ItemProps, BoardItemsProps } from '../../lib/interfaces';
 import React, {useState , useEffect} from 'react';
-import { DragDropContext, DropResult, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 import { useDragAndDrop } from '@/src/hooks/useDragAndDrop';
 import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';

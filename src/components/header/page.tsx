@@ -27,7 +27,7 @@ const Header = () => {
                 <Menu />
             ) : (
                 <div className='relative text-white text-2xl justify-self-end cursor-pointer'>
-                     <FaBars onClick={toggleMenu} className={`absolute text-white text-2xl justify-self-end cursor-pointer transition-opacity ease-in duration-400 ${isMenuMobileOpen ? 'opacity-0' : 'opacity-100'}`} />
+                    <FaBars onClick={toggleMenu} className={`absolute text-white text-2xl justify-self-end cursor-pointer transition-opacity ease-in duration-400 ${isMenuMobileOpen ? 'opacity-0' : 'opacity-100'}`} />
                     <FaTimes onClick={toggleMenu} className={`text-white text-2xl justify-self-end cursor-pointer transition-opacity ease-in duration-400 ${isMenuMobileOpen ? 'opacity-100' : 'opacity-0'}`} />
                 </div>
             )}

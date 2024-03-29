@@ -9,6 +9,7 @@ const Board = ({items}: BoardProps) => {
 
     const isMobile = useMediaQuery('(max-width: 640px)');
 
+    // State to store the category names to allow user to change them
     const [categoryNames, setCategoryNames] = useState<{[key: string]: string}>({S:'S', A:'A', B:'B', C:'C', D:'D'});
 
     const handleCategoryChange = (e: React.ChangeEvent<HTMLTextAreaElement>, oldCategoryName: string) => { 

@@ -2,6 +2,8 @@
 
 const Footer = () => {
 
+  //! Force footer to bottom of page
+
     return (
        <footer>
               <div className="bg-black text-white p-4 text-center">
