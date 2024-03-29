@@ -8,7 +8,7 @@ const Board = ({items, isMobile}: BoardProps) => {
 
     const [categoryNames, setCategoryNames] = useState<{[key: string]: string}>({S:'S', A:'A', B:'B', C:'C', D:'D'});
 
-    const handleCategoryChange = (e: React.ChangeEvent<HTMLInputElement>, oldCategoryName: string) => { 
+    const handleCategoryChange = (e: React.ChangeEvent<HTMLTextAreaElement>, oldCategoryName: string) => { 
         const newCategoryName = e.target.value;
         setCategoryNames(prev => ({...prev, [oldCategoryName]: newCategoryName}));
     }
@@ -21,11 +21,12 @@ const Board = ({items, isMobile}: BoardProps) => {
             <Droppable droppableId={`board-${category}`} key={category} direction='horizontal'>
                 {(provided, snapshot) => (
                     <div className='flex w-full min-w-24 min-h-[125px] border-b-2 border-black sm:min-h-[150px]'>
-                        <div className={`w-1/4 flex  justify-center items-center ${getBackgroundColor(category)} p-3`}>
-                            <input 
+                        <div className={`w-1/4 flex  justify-center items-center ${getBackgroundColor(category)} p-2`}>
+                            <textarea 
                                 value={categoryNames[category]} 
                                 onChange={e => handleCategoryChange(e, category)} 
-                                className='bg-transparent h-12 text-black font-oswald text-sm flex text-center' 
+                                className='bg-transparent w-full text-black font-oswald text-sm md:text-base flex text-center pt-5 resize-none'
+                                maxLength={30} 
                             />
                         </div>
                         <div ref={provided.innerRef} {...provided.droppableProps} style={{backgroundColor: snapshot.isDraggingOver ? 'gray' : 'transparent',}} className='droppable-container w-3/4 flex justify-start items-center gap-1 p-1 flex-wrap'>
