@@ -80,7 +80,7 @@ const TierList = ({params} : {params: {listId: string}}) => {
             C: [],
             D: [],
         });
-        setChoicesItems(initialChoices);
+        setChoicesItems([...initialChoices]);
     }
     
     return (
@@ -100,7 +100,7 @@ const TierList = ({params} : {params: {listId: string}}) => {
                     <Board items={boardItems}/>
                     <Choices items={choicesItems} />     
 
-                    <section className='flex flex-col gap-3 justify-center items-center mt-16 mb-32'>
+                    <section className='flex flex-col gap-4 justify-center items-center mt-12 mb-32'>
                         <Button text='Reset list' action={resetBoard} />
                         <Button text='Screenshot list' action={screenshotList} />
                         <Button text='Save list' action={() => console.log('Sauvegarder la liste')} />

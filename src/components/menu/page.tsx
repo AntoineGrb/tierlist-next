@@ -7,10 +7,18 @@ export default function Menu() {
     return (
         <nav>
           <ul className={`p-2 flex gap-5`}>
-              <li className='text-xl'> <Link href={'/'}>TEMPLATES</Link> </li>
-              <li className='text-xl'> <Link href={'/new-template'}>CREATE TEMPLATE </Link> </li>
-              <li className='text-xl'> <Link href={'/'}>LAST USER LISTS</Link> </li>
-              <li className='text-xl'> <Link href={'/'}>LOGIN</Link> </li>
+              <li className=''> 
+                <Link href={'/'}> <p className='text-xl hover:text-slate-200'> TEMPLATES </p></Link> 
+              </li>
+              <li className='text-xl'> 
+                <Link href={'/new-template'}><p className='text-xl hover:text-slate-200'>CREATE TEMPLATE</p> </Link> 
+              </li>
+              <li className='text-xl'> 
+                <Link href={'/'}><p className='text-xl hover:text-slate-200'>LAST USER LISTS</p></Link> 
+              </li>
+              <li className='text-xl'> 
+                <Link href={'/'}><p className='text-xl hover:text-slate-200'>LOGIN</p></Link> 
+              </li>
           </ul>
       </nav>
     );
