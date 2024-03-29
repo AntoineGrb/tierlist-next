@@ -1,10 +1,13 @@
 import { BoardProps, ItemProps } from '../../../app/lib/interfaces';
 import React, {useEffect, useState} from 'react';
 import Image from 'next/image';
+import { useMediaQuery } from 'usehooks-ts';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { getBackgroundColor } from '@/src/utils/styleFunctions';
 
-const Board = ({items, isMobile}: BoardProps) => {
+const Board = ({items}: BoardProps) => {
+
+    const isMobile = useMediaQuery('(max-width: 640px)');
 
     const [categoryNames, setCategoryNames] = useState<{[key: string]: string}>({S:'S', A:'A', B:'B', C:'C', D:'D'});
 
@@ -27,6 +30,7 @@ const Board = ({items, isMobile}: BoardProps) => {
                                 onChange={e => handleCategoryChange(e, category)} 
                                 className='bg-transparent w-full text-black font-oswald text-sm md:text-base flex text-center pt-5 resize-none'
                                 maxLength={30} 
+                                spellCheck={false}
                             />
                         </div>
                         <div ref={provided.innerRef} {...provided.droppableProps} style={{backgroundColor: snapshot.isDraggingOver ? 'gray' : 'transparent',}} className='droppable-container w-3/4 flex justify-start items-center gap-1 p-1 flex-wrap'>

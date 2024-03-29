@@ -25,13 +25,11 @@ export interface ListProps {
 //Props for choice's div
 export interface ChoicesProps { 
     items: ItemProps[],
-    isMobile: boolean;
 }
 
 //Props for board's div with tierlist's rows
 export interface BoardProps {
     items: BoardItemsProps;
-    isMobile: boolean;
 }
 
 export interface BoardItemsProps {

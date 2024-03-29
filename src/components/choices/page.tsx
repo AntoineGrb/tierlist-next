@@ -2,10 +2,11 @@ import { ChoicesProps } from '../../../app/lib/interfaces';
 import React from 'react';
 import Image from 'next/image';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { useMediaQuery } from 'usehooks-ts';
 
-const Choices = ({items, isMobile}: ChoicesProps) => {
+const Choices = ({items}: ChoicesProps) => {
 
-    /* Pour le défilement horizontal, utiliser : flex flex-nowrap overflow-x-auto */
+    const isMobile = useMediaQuery('(max-width: 640px)');
 
     return (
         <>

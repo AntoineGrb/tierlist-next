@@ -10,7 +10,6 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-const inter = Inter({ subsets: ["latin"] });
 const bangers = Bangers({ weight: ['400'] , subsets: ["latin"], variable:'--font-bangers' });
 const luckiestGuy = Luckiest_Guy({ weight: ['400'], subsets:["latin"], variable:'--font-luckiest-guy' });
 const oswald = Oswald({ weight: ['200', '400', '600'] , subsets: ["latin"], variable:'--font-oswald' });
