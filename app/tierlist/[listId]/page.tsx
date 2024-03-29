@@ -4,7 +4,7 @@ import { ListProps, ItemProps, BoardItemsProps } from '../../lib/interfaces';
 import React, {useState , useEffect} from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useDragAndDrop } from '@/src/hooks/useDragAndDrop';
-import html2canvas from 'html2canvas';
+import { useScreenshot } from '@/src/hooks/useScreenshot';
 import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
 import Button from '@/src/components/button/page';
@@ -34,6 +34,7 @@ const TierList = ({params} : {params: {listId: string}}) => {
     });
     const [choicesItems, setChoicesItems] = useState<ItemProps[]>(list.items); //Initial state of choicesItems with list items
     const [initialChoices, setInitialChoices] = useState<ItemProps[]>(list.items); //Initial state of initialChoices with list items, to allow reset
+    //! Ce state devra etre dans le contexte utilisateur
     const [capturedImage, setCapturedImage] = useState<string[]>([]); //State to store the captured image of the tier list
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -67,8 +68,9 @@ const TierList = ({params} : {params: {listId: string}}) => {
         fetchData();
     }, [listId]);
 
-    //Get onDragEnd function from useDragAndDrop hook
-    const { onDragEnd } = useDragAndDrop(boardItems, setBoardItems, choicesItems, setChoicesItems);
+    //Get exported function from hooks
+    const { onDragEnd } = useDragAndDrop(boardItems, setBoardItems, choicesItems, setChoicesItems); //Get dragAndDrop function to handle item's drag and drop
+    const { screenshotList } = useScreenshot(capturedImage, setCapturedImage); //Get screenshot function to take a screenshot of the tier list
 
     const resetBoard = () => {
         setBoardItems({
@@ -79,24 +81,6 @@ const TierList = ({params} : {params: {listId: string}}) => {
             D: [],
         });
         setChoicesItems(initialChoices);
-    }
-
-    const screenshotList = () => { 
-        const boardElement = document.getElementById('board');
-        if (boardElement) {
-            html2canvas(boardElement).then((canvas) => {
-                const imageDataUrl = canvas.toDataURL('image/png'); //Convert canvas to image
-                setCapturedImage((prevImages) => [...prevImages, imageDataUrl]);
-
-                const imageWindow = window.open(); // Ouvrir une nouvelle fenêtre ou un nouvel onglet
-                if (imageWindow) {
-                    // Écrire le HTML pour afficher l'image dans la nouvelle fenêtre
-                    imageWindow.document.write(`<img src="${imageDataUrl}" alt="Captured Image" style="max-width: 70vw; max-height: 95vh; display: block; margin: 0 auto;" />`);
-                }
-
-                console.log(capturedImage)
-            })
-        }
     }
     
     return (

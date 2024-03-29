@@ -4,6 +4,7 @@ import { ItemProps, BoardItemsProps } from '../lib/interfaces';
 import React, {useState , useEffect} from 'react';
 import { DragDropContext} from 'react-beautiful-dnd';
 import { useDragAndDrop } from '@/src/hooks/useDragAndDrop';
+import { useScreenshot } from '@/src/hooks/useScreenshot';
 import Board from '@/src/components/board/page';
 import Choices from '@/src/components/choices/page';
 import Button from '@/src/components/button/page';
@@ -23,6 +24,12 @@ const TierList = () => {
         title:'Your template title',
         description: 'Describe your template here',
     })
+    //! Ce state devra etre dans le contexte utilisateur
+    const [capturedImage, setCapturedImage] = useState<string[]>([]); //State to store the captured image of the tier list
+
+    //Get exported function from hooks
+    const { onDragEnd } = useDragAndDrop(boardItems, setBoardItems, choicesItems, setChoicesItems); //Get dragAndDrop function to handle item's drag and drop
+    const { screenshotList } = useScreenshot(capturedImage, setCapturedImage); //Get screenshot function to take a screenshot of the tier list
 
     //Handle template's title & description modify by user
     const handleTemplateInfosChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,9 +47,6 @@ const TierList = () => {
         setInitialChoices([...newItems]); // Mise à jour pour refléter l'état initial après chargement
         setChoicesItems([...newItems]);
     }
-
-    //Get onDragEnd function from useDragAndDrop hook
-    const { onDragEnd } = useDragAndDrop(boardItems, setBoardItems, choicesItems, setChoicesItems);
 
     const resetBoard = () => {
         setBoardItems({
@@ -88,8 +92,9 @@ const TierList = () => {
                     /> 
                 </section> 
                 <section className='flex flex-col gap-3 justify-center items-center mt-16 mb-32'>
-                    <Button text='Reset your list' action={resetBoard} />
-                    <Button text='Save your list' action={() => console.log('Sauvegarder la liste')} />
+                    <Button text='Reset list' action={resetBoard} />
+                    <Button text='Screenshot list' action={screenshotList} />
+                    <Button text='Save list' action={() => console.log('Sauvegarder la liste')} />
                 </section>
 
             </main>
