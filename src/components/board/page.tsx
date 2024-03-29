@@ -13,7 +13,7 @@ const Board = ({items, isMobile}: BoardProps) => {
         {Object.entries(items).map(([category, categoryItems]) => (
             <Droppable droppableId={`board-${category}`} key={category} direction='horizontal'>
                 {(provided, snapshot) => (
-                    <div className='flex w-full min-w-24 min-h-28 border-b-2 border-black'>
+                    <div className='flex w-full min-w-24 min-h-[125px] border-b-2 border-black sm:min-h-[150px]'>
                         <div className={`w-1/4 flex justify-center items-center ${getBackgroundColor(category)} p-3`}>
                             <p className='text-black'>{category}</p>
                         </div>
