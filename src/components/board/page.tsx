@@ -18,7 +18,7 @@ const Board = ({items}: BoardProps) => {
     }
 
     return (
-        <div className='bg-[#1a1a18] border-2 border-black'>
+        <div id='board' className='bg-[#1a1a18] border-2 border-black'>
             
         {/* Create a drop zone for each category of tier list */}
         {Object.entries(items).map(([category, categoryItems]) => (
@@ -39,7 +39,7 @@ const Board = ({items}: BoardProps) => {
                                 <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
                                     {(provided) => (
                                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                            <Image src={item.itemImageUrl} alt={item.name} width={isMobile ? 80 : 100} height={isMobile ? 80 : 100} />
+                                            <Image src={item.itemImageUrl} alt={item.name} width={isMobile ? 80 : 95} height={isMobile ? 80 : 95} />
                                         </div>
                                     )}
                                 </Draggable>

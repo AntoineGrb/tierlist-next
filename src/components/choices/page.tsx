@@ -20,7 +20,7 @@ const Choices = ({items}: ChoicesProps) => {
                         <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
                             {(provided) => (
                                 <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="min-w-[80px]">
-                                    <Image src={item.itemImageUrl} alt={item.name} width={isMobile ? 80 : 100} height={isMobile ? 80 : 100}  />
+                                    <Image src={item.itemImageUrl} alt={item.name} width={isMobile ? 80 : 95} height={isMobile ? 80 : 95}  />
                                 </div>
                             )}
                         </Draggable>
