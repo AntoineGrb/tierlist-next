@@ -32,13 +32,15 @@
             {"name":"Harry Kane", "itemImageUrl":"/assets/items/football-players-2024/kane.jpg"},
             {"name":"Lionel Messi", "itemImageUrl":"/assets/items/football-players-2024/messi.jpg"},
             {"name":"Cristiano Ronaldo", "itemImageUrl":"/assets/items/football-players-2024/ronaldo.jpg"},
-            {"name":"Vinicius Junior", "itemImageUrl":"/assets/items/football-players-2024/vinicius.jpg"}
+            {"name":"Vinicius Junior", "itemImageUrl":"/assets/items/football-players-2024/vinicius.jpg"},
+            {"name":"Bernardo Silva", "itemImageUrl":"/assets/items/football-players-2024/bernardo-silva.png"},
+            {"name":"Courtois", "itemImageUrl":"/assets/items/football-players-2024/courtois.jpg"}
         ]
     },
     {
         "title": "Football Players All time",
         "description": "This timeless tier list ranks football legends based on their impact on the sport, unparalleled skills, and the honors they have accumulated. From Pelé to Messi, this list spans eras to celebrate the talents that have defined football.",
-        "cardImageUrl": "/assets/items/football-players-all-time/card-image.jpg",
+        "cardImageUrl": "/assets/items/football-players-all-time/card-image.png",
         "category": "Sports",
         "isPopular": true,
         "items": [
@@ -46,10 +48,12 @@
             { "name": "Cruyff", "itemImageUrl":"/assets/items/football-players-all-time/cruyff.jpg"},
             { "name": "Maradona", "itemImageUrl":"/assets/items/football-players-all-time/maradona.jpg"},
             { "name": "Pelé", "itemImageUrl":"/assets/items/football-players-all-time/pele.jpg"},
-            { "name": "Ronaldo", "itemImageUrl":"/assets/items/football-players-all-time/ronaldo.jpg"},
+            { "name": "Ronaldo", "itemImageUrl":"/assets/items/football-players-all-time/ronaldo-9.jpg"},
             { "name": "Zidane", "itemImageUrl":"/assets/items/football-players-all-time/zidane.jpg"},
             { "name": "Messi", "itemImageUrl":"/assets/items/football-players-2024/messi.jpg"},
-            { "name": "Cristiano Ronaldo", "itemImageUrl":"/assets/items/football-players-2024/ronaldo.jpg"}
+            { "name": "Cristiano Ronaldo", "itemImageUrl":"/assets/items/football-players-2024/ronaldo.jpg"},
+            { "name": "Ronaldinho", "itemImageUrl":"/assets/items/football-players-all-time/ronaldinho.jpg"},
+            { "name": "Puskas", "itemImageUrl":"/assets/items/football-players-all-time/puskas.png"}
         ]
     },
     {
@@ -81,14 +85,19 @@
         "isPopular": true,
         "items": [
             { "name": "Brienne", "itemImageUrl":"/assets/items/game-of-thrones-fight/brienne.png"},
-            { "name": "Bronn", "itemImageUrl":"/assets/items/game-of-thrones-fight/bronn.jpg"},
+            { "name": "Bronn", "itemImageUrl":"/assets/items/game-of-thrones-fight/bronn.png"},
             { "name": "Ser Gregor Clegane", "itemImageUrl":"/assets/items/game-of-thrones-fight/gregor-clegane.png"},
             { "name": "Jaime Lannister", "itemImageUrl":"/assets/items/game-of-thrones-fight/jaime-lannister.jpg"},
             { "name": "Jon Snow", "itemImageUrl":"/assets/items/game-of-thrones-fight/jon-snow.png"},
-            { "name": "Jorah Mormont", "itemImageUrl":"/assets/items/game-of-thrones-fight/jorah-mormont.jpg"},
+            { "name": "Jorah Mormont", "itemImageUrl":"/assets/items/game-of-thrones-fight/jorah.png"},
             { "name": "Sandor Clegane", "itemImageUrl":"/assets/items/game-of-thrones-fight/sandor-clegane.jpg"},
-            { "name": "Stannis Baratheon", "itemImageUrl":"/assets/items/game-of-thrones-fight/stannis-baratheon.jpeg"},
-            { "name": "Tormund", "itemImageUrl":"/assets/items/game-of-thrones-fight/tormund.jpg"}
+            { "name": "Stannis Baratheon", "itemImageUrl":"/assets/items/game-of-thrones-fight/stannis.png"},
+            { "name": "Tormund", "itemImageUrl":"/assets/items/game-of-thrones-fight/tormund.png"},
+            { "name": "Arya", "itemImageUrl":"/assets/items/game-of-thrones-fight/arya.png"},
+            { "name": "Daario", "itemImageUrl":"/assets/items/game-of-thrones-fight/daario.png"},
+            { "name": "Grey Worm", "itemImageUrl":"/assets/items/game-of-thrones-fight/grey-worm.png"},
+            { "name": "Night King", "itemImageUrl":"/assets/items/game-of-thrones-fight/night-king.png"},
+            { "name": "Thoros of Myr", "itemImageUrl":"/assets/items/game-of-thrones-fight/thoros.png"}
         ]
     },
     {
