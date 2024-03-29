@@ -33,7 +33,7 @@ const TierList = ({params} : {params: {listId: string}}) => {
         D: [], 
     });
     const [choicesItems, setChoicesItems] = useState<ItemProps[]>(list.items); //Initial state of choicesItems with list items
-    const [initialChoices, setInitialChoices] = useState<ItemProps[]>(list.items); //Initial state of initialChoices with list items, to allow reset
+    const [initialChoices, setInitialChoices] = useState<ItemProps[]>([]); //Initial state of initialChoices with list items, to allow reset
     //! Ce state devra etre dans le contexte utilisateur
     const [capturedImage, setCapturedImage] = useState<string[]>([]); //State to store the captured image of the tier list
     const [isLoading, setIsLoading] = useState(true);
