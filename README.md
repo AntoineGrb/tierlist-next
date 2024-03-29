@@ -2,6 +2,8 @@
 
 S-Tier List est une application permettant de créer des tier lists. Un certain nombre de templates sont disponibles sur l'application, et il est également possible de construire son propre template en y apportant des images. 
 
+L'appli est uploadée sur Vercel, voici le lien : [https://tierlist-next.vercel.app/](https://tierlist-next.vercel.app/) ! 
+
 ## Versionning 💻
 
 **!! Le projet est toujours en cours de développement !!**
@@ -22,8 +24,6 @@ Features :
 Features : 
 - Créer un compte et se connecter
 - Accéder à une page Profil pour retrouver ses templates favoris et ses tier lists enregistrées
-
-L'appli est uploadée sur Vercel, voici le lien : [https://tierlist-next.vercel.app/](https://tierlist-next.vercel.app/) ! 
 
 ## Présentation 🌟
 
