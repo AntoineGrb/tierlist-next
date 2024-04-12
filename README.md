@@ -8,13 +8,13 @@ L'appli est uploadée sur Vercel, voici le lien : [https://tierlist-next.vercel.
 
 **!! Le projet est toujours en cours de développement !!**
 
-### Version V1 (actuelle)
+### Version V1 (livrée)
 Features : 
 - Accéder à différents templates à partir de la page d'accueil
 - Utiliser un template pour faire une tier list
 - Responsive : version mobile & version desktop
 
-### Version V2 (à venir)
+### Version V2 (livrée)
 Features : 
 - Rajout de plusieurs templates de tier list
 - Créer son template en y important ses propres images
